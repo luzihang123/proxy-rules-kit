@@ -1,0 +1,23 @@
+# 订阅模板。复制为 subscriptions/subscriptions.yaml 后填写真实值。
+# subscriptions/subscriptions.yaml 已在 .gitignore 中，不应提交。
+
+providers:
+  - name: provider-a
+    owner: me
+    url: https://example.com/api/v1/client/subscribe?token=<TOKEN>
+    site: https://provider-a.example.com
+    note: 示例订阅，替换为自己的服务商信息
+
+  - name: provider-b
+    owner: family-member
+    url: https://example.net/sub/<TOKEN>?target=clash
+    site: https://provider-b.example.net
+    note: 第二个订阅示例
+
+subconverter:
+  endpoint: http://127.0.0.1:25500
+  target: clash
+  sources:
+    - provider-a
+    - provider-b
+  merged_url: http://127.0.0.1:25500/sub?target=clash&url=<URL_ENCODED_SUBSCRIPTIONS>

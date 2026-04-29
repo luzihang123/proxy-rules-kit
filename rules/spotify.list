@@ -1,0 +1,11 @@
+# Spotify 流媒体
+# 策略建议：走新加坡节点（Spotify 注册地风控，须与注册地区一致）
+
+DOMAIN-SUFFIX,spotify.com
+DOMAIN-SUFFIX,spotifycdn.com
+DOMAIN-SUFFIX,scdn.co
+DOMAIN-SUFFIX,spotify.design
+DOMAIN-SUFFIX,spotilocal.com
+DOMAIN-SUFFIX,tospotify.com
+DOMAIN-SUFFIX,pscdn.co
+DOMAIN-KEYWORD,spotify

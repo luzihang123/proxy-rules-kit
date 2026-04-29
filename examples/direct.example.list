@@ -1,0 +1,4 @@
+# 企业/内网直连示例
+DOMAIN-SUFFIX,corp.example.com
+DOMAIN-SUFFIX,internal.example.test
+DOMAIN,portal.corp.example.com

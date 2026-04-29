@@ -1,0 +1,426 @@
+# 设计思路与默认策略说明：见同目录 `README.md`
+# =====================================================
+# RouteKit · Clash Verge Rev 订阅覆写配置（服务商模板）
+# 当前按 macOS / Version 2.4.7 (2.4.7) 记录
+# 适用订阅：任意订阅（按需修改上游策略组名称）
+# 上游策略组参考：节点选择 / 自动选择 / ChatGPT / Gemini
+# =====================================================
+# 使用方法：
+#   1. Clash Verge Rev → 订阅 → 配置卡片右键 → 编辑扩展
+#   2. 粘贴本文件内容并保存
+# =====================================================
+# 核心特性：
+#   - include-all-proxies: true  自动包含所有订阅节点
+#   - filter: "正则"             按节点名自动分组，换服务商不用改
+#   - fake-ip-filter            企业/内网内网域名不走 fake-ip，避免系统代理下内网直连异常
+# =====================================================
+
+# ==================== 自定义规则 ====================
+prepend-rules:
+  # ========= 🤖 AI（走美国节点）=========
+  - DOMAIN-KEYWORD,claude,🤖 RouteKit-AI
+  - DOMAIN-KEYWORD,anthropic,🤖 RouteKit-AI
+  - DOMAIN-KEYWORD,chatgpt,🤖 RouteKit-AI
+  - DOMAIN-KEYWORD,openai,🤖 RouteKit-AI
+  - DOMAIN-KEYWORD,oaiusercontent,🤖 RouteKit-AI
+  - DOMAIN-KEYWORD,gemini,🤖 RouteKit-AI
+  - DOMAIN-KEYWORD,generativelanguage,🤖 RouteKit-AI
+  - DOMAIN-KEYWORD,aistudio,🤖 RouteKit-AI
+  - DOMAIN,generativelanguage.googleapis.com,🤖 RouteKit-AI
+  - DOMAIN,gemini.google.com,🤖 RouteKit-AI
+  - DOMAIN,aistudio.google.com,🤖 RouteKit-AI
+  - DOMAIN,ai.google.dev,🤖 RouteKit-AI
+  - DOMAIN,makersuite.google.com,🤖 RouteKit-AI
+  - DOMAIN,notebooklm.google.com,🤖 RouteKit-AI
+  - DOMAIN,openaiapi-site.azureedge.net,🤖 RouteKit-AI
+  - DOMAIN,production-openaicom-storage.azureedge.net,🤖 RouteKit-AI
+  - DOMAIN,openaicom.imgix.net,🤖 RouteKit-AI
+  - DOMAIN,chatgpt.livekit.cloud,🤖 RouteKit-AI
+  - DOMAIN,host.livekit.cloud,🤖 RouteKit-AI
+  - DOMAIN,turn.livekit.cloud,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,claude.ai,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,anthropic.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,chatgpt.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,chat.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,openai.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,oaistatic.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,oaiusercontent.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,dify.ai,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,ollama.ai,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,sora.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,perplexity.ai,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,manus.im,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,withgoogle.com,🤖 RouteKit-AI
+  - DOMAIN,stitch.withgoogle.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,deepmind.google,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,deepmind.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,labs.google,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,jules.google,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,notebooklm.google,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,generativeai.google,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,geller-pa.googleapis.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,aisandbox-pa.googleapis.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,aida.googleapis.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,bard.google.com,🤖 RouteKit-AI
+
+  # ========= 📺 RouteKit-YouTube（走香港/日本快速线路）=========
+  - DOMAIN-SUFFIX,youtube.com,📺 RouteKit-YouTube
+  - DOMAIN-SUFFIX,youtu.be,📺 RouteKit-YouTube
+  - DOMAIN-SUFFIX,ytimg.com,📺 RouteKit-YouTube
+  - DOMAIN-SUFFIX,googlevideo.com,📺 RouteKit-YouTube
+  - DOMAIN-SUFFIX,youtubei.googleapis.com,📺 RouteKit-YouTube
+  - DOMAIN-SUFFIX,youtube-nocookie.com,📺 RouteKit-YouTube
+  - DOMAIN,www.youtube.com,📺 RouteKit-YouTube
+  - DOMAIN,m.youtube.com,📺 RouteKit-YouTube
+  - DOMAIN,music.youtube.com,📺 RouteKit-YouTube
+  - DOMAIN,youtubei.googleapis.com,📺 RouteKit-YouTube
+
+  # ========= 🛠 RouteKit-Dev-US（Google 反重力，走美国）=========
+  - DOMAIN-SUFFIX,google.com,🛠 RouteKit-Dev-US
+  - DOMAIN-SUFFIX,google,🛠 RouteKit-Dev-US
+  - DOMAIN-SUFFIX,googleapis.com,🛠 RouteKit-Dev-US
+  - DOMAIN-SUFFIX,gstatic.com,🛠 RouteKit-Dev-US
+  - DOMAIN-SUFFIX,googletagmanager.com,🛠 RouteKit-Dev-US
+  - DOMAIN-SUFFIX,google-analytics.com,🛠 RouteKit-Dev-US
+
+  # ========= 🔧 RouteKit-Dev（开发工具，走日本/新加坡/自动）=========
+  # GitHub
+  - DOMAIN,api.github.com,🔧 RouteKit-Dev
+  - DOMAIN,gist.github.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,github.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,github.io,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,githubusercontent.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,githubassets.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,githubstatus.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,ghcr.io,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,git-scm.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,gitbook.io,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,githubcopilot.com,🔧 RouteKit-Dev
+  - DOMAIN,copilot-telemetry.githubusercontent.com,🔧 RouteKit-Dev
+  - DOMAIN,origin-tracker.githubusercontent.com,🔧 RouteKit-Dev
+  - DOMAIN,copilot-proxy.githubusercontent.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,github.dev,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,github.community,🔧 RouteKit-Dev
+
+  # Package / Runtime
+  - DOMAIN-SUFFIX,docker.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,docker.io,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,ubuntu.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,pypi.org,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,python.org,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,pythonhosted.org,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,readthedocs.io,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,go.dev,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,npmjs.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,brew.sh,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,cursor.sh,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,cursor.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,cursorapi.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,cursor-cdn.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,kiro.dev,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,jetbrains.com,🔧 RouteKit-Dev
+  - DOMAIN,vsmarketplacebadge.apphb.com,🔧 RouteKit-Dev
+  - DOMAIN,default.exp-tas.com,🔧 RouteKit-Dev
+  - DOMAIN,webpubsub.azure.com,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,azure.com,🔧 RouteKit-Dev
+
+  # CDN / Cloud
+  - DOMAIN-SUFFIX,imagedelivery.net,🔧 RouteKit-Dev
+  - DOMAIN-SUFFIX,cloudfront.net,🔧 RouteKit-Dev
+
+  # ========= 🎵 Spotify（走新加坡，注册地风控）=========
+  - DOMAIN-SUFFIX,spotify.com,🎵 RouteKit-Spotify
+  - DOMAIN-SUFFIX,spotifycdn.com,🎵 RouteKit-Spotify
+  - DOMAIN-SUFFIX,scdn.co,🎵 RouteKit-Spotify
+  - DOMAIN-SUFFIX,spotify.design,🎵 RouteKit-Spotify
+  - DOMAIN-SUFFIX,spotilocal.com,🎵 RouteKit-Spotify
+  - DOMAIN-SUFFIX,tospotify.com,🎵 RouteKit-Spotify
+  - DOMAIN-SUFFIX,pscdn.co,🎵 RouteKit-Spotify
+  - DOMAIN-KEYWORD,spotify,🎵 RouteKit-Spotify
+
+  # ========= 🪙 Crypto/Web3（走日本/新加坡）=========
+  - DOMAIN-SUFFIX,binance.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,binance.me,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,binance.cloud,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,bnbstatic.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,okx.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,okx.com.hk,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,okex.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,okx-cdn.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,bybit.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,bitget.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,aicoin.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,geckoterminal.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,futunn.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,mytokencap.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,aftermath.finance,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,sui.io,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,hashkey.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,chainbuzz.xyz,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,chainfeeds.xyz,🪙 RouteKit-Crypto-Web3
+
+  # ========= 🌍 Others =========
+  - DOMAIN-SUFFIX,ja3er.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,onekey.so,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,henduohao.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,illidan.pro,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,linux.do,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,leancloud.app,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,workos.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,bbx.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,endnote.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,coursera.org,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,1lib.sk,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,z-library.sk,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,telegram.org,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,microsoft.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,live.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,office.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,office365.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,sharepoint.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,onmicrosoft.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,windows.net,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,icloud.com,🌍 RouteKit-Proxy
+  - DOMAIN-SUFFIX,apple-cloudkit.com,🌍 RouteKit-Proxy
+
+# 兜底规则
+append-rules:
+  - MATCH,🌍 RouteKit-Proxy
+
+# ==================== 自定义策略组 ====================
+# 使用 include-all-proxies + filter 自动匹配节点
+# 换服务商/加订阅 不用改配置，正则自动适配
+prepend-proxy-groups:
+  # ---------- RouteKit 业务策略组 ----------
+  - name: RouteKit-DIRECT
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🤖 RouteKit-AI
+    type: select
+    proxies:
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇬🇧 英国自动
+      - 🇬🇧 英国节点
+      - 🇨🇦 加拿大自动
+      - 🇨🇦 加拿大节点
+      - 🇩🇪 德国自动
+      - 🇩🇪 德国节点
+      - RouteKit-DIRECT
+
+  - name: 🌍 RouteKit-Proxy
+    type: select
+    proxies:
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇬🇧 英国自动
+      - 🇬🇧 英国节点
+      - 🇨🇦 加拿大自动
+      - 🇨🇦 加拿大节点
+      - 🇩🇪 德国自动
+      - 🇩🇪 德国节点
+      - RouteKit-DIRECT
+
+  - name: 🛠 RouteKit-Dev-US
+    type: select
+    proxies:
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - RouteKit-DIRECT
+
+  - name: 📺 RouteKit-YouTube
+    type: select
+    proxies:
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - RouteKit-DIRECT
+
+  - name: 🔧 RouteKit-Dev
+    type: select
+    proxies:
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - RouteKit-DIRECT
+
+  - name: 🎵 RouteKit-Spotify
+    type: select
+    proxies:
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - RouteKit-DIRECT
+
+  - name: 🪙 RouteKit-Crypto-Web3
+    type: select
+    proxies:
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇬🇧 英国自动
+      - 🇬🇧 英国节点
+      - 🇨🇦 加拿大自动
+      - 🇨🇦 加拿大节点
+      - 🇩🇪 德国自动
+      - 🇩🇪 德国节点
+      - RouteKit-DIRECT
+
+  # ---------- 地区节点组（自动匹配，不用手写节点名）----------
+  - name: 🇭🇰 香港自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)香港|香港HK|香港WAP|家宽|🇭🇰"
+
+  - name: 🇭🇰 香港节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)香港|香港HK|香港WAP|家宽|🇭🇰"
+
+  - name: 🇹🇼 台湾自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)台湾|家宽|直连 0.5倍率|🇨🇳 台湾|🇹🇼"
+
+  - name: 🇹🇼 台湾节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)台湾|家宽|直连 0.5倍率|🇨🇳 台湾|🇹🇼"
+
+  - name: 🇺🇲 美国节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|家宽|直连 0.5倍率|🇺🇸|🇺🇲"
+
+  - name: 🇺🇲 美国自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|家宽|直连 0.5倍率|🇺🇸|🇺🇲"
+
+  - name: 🇸🇬 新加坡节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)新加坡|海外用户专用-新加坡|直连 0.5倍率|🇸🇬"
+
+  - name: 🇸🇬 新加坡自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)新加坡|海外用户专用-新加坡|直连 0.5倍率|🇸🇬"
+
+  - name: 🇯🇵 日本节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)日本|日本JP|海外用户专用-日本|直连 0.5倍率|🇯🇵"
+
+  - name: 🇯🇵 日本自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)日本|日本JP|海外用户专用-日本|直连 0.5倍率|🇯🇵"
+
+  - name: 🇬🇧 英国节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)英国|家宽|🇬🇧"
+
+  - name: 🇬🇧 英国自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)英国|家宽|🇬🇧"
+
+  - name: 🇨🇦 加拿大节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)加拿大|🇨🇦"
+
+  - name: 🇨🇦 加拿大自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)加拿大|🇨🇦"
+
+  - name: 🇩🇪 德国节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)德国|德国DE|🇩🇪"
+
+  - name: 🇩🇪 德国自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)德国|德国DE|🇩🇪"

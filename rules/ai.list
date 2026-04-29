@@ -1,0 +1,31 @@
+# AI / LLM 大模型服务
+# 策略建议：走美国节点（OpenAI/Claude/Google AI 主要部署在美国）
+
+# Claude / Anthropic
+DOMAIN-KEYWORD,claude
+DOMAIN-KEYWORD,anthropic
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,anthropic.com
+
+# OpenAI / ChatGPT
+DOMAIN-KEYWORD,chatgpt
+DOMAIN-KEYWORD,openai
+DOMAIN-KEYWORD,oaiusercontent
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,sora.com
+
+# Google AI (Gemini / AI Studio)
+DOMAIN-KEYWORD,gemini
+DOMAIN-KEYWORD,generativelanguage
+DOMAIN-KEYWORD,aistudio
+DOMAIN,generativelanguage.googleapis.com
+DOMAIN,gemini.google.com
+DOMAIN,aistudio.google.com
+
+# Other AI
+DOMAIN-SUFFIX,dify.ai
+DOMAIN-SUFFIX,ollama.ai
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,manus.im

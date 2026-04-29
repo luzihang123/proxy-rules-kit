@@ -1,0 +1,46 @@
+# 通用代理规则（需代理访问的常用服务）
+
+# Google（不含 YouTube / Google AI）
+DOMAIN-SUFFIX,google.com
+DOMAIN-SUFFIX,google
+DOMAIN-SUFFIX,googleapis.com
+DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,googletagmanager.com
+DOMAIN-SUFFIX,google-analytics.com
+
+# Microsoft / Azure
+DOMAIN-SUFFIX,azure.com
+DOMAIN-SUFFIX,microsoft.com
+DOMAIN-SUFFIX,live.com
+DOMAIN-SUFFIX,office.com
+DOMAIN-SUFFIX,office365.com
+DOMAIN-SUFFIX,sharepoint.com
+DOMAIN-SUFFIX,onmicrosoft.com
+DOMAIN-SUFFIX,windows.net
+
+# Apple
+DOMAIN-SUFFIX,icloud.com
+DOMAIN-SUFFIX,apple-cloudkit.com
+
+# Messaging
+DOMAIN-SUFFIX,telegram.org
+
+# CDN / Cloud
+DOMAIN-SUFFIX,imagedelivery.net
+DOMAIN-SUFFIX,cloudfront.net
+
+# Knowledge / Tools
+DOMAIN-SUFFIX,ja3er.com
+DOMAIN-SUFFIX,onekey.so
+DOMAIN-SUFFIX,henduohao.com
+DOMAIN-SUFFIX,illidan.pro
+DOMAIN-SUFFIX,linux.do
+DOMAIN-SUFFIX,leancloud.app
+DOMAIN-SUFFIX,workos.com
+DOMAIN-SUFFIX,bbx.com
+DOMAIN-SUFFIX,endnote.com
+DOMAIN-SUFFIX,coursera.org
+DOMAIN-SUFFIX,1lib.sk
+DOMAIN-SUFFIX,z-library.sk
+
+# IP

@@ -1,0 +1,42 @@
+# 开发工具 / 编程相关
+
+# GitHub
+DOMAIN,api.github.com
+DOMAIN,gist.github.com
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,github.io
+DOMAIN-SUFFIX,githubusercontent.com
+DOMAIN-SUFFIX,githubassets.com
+DOMAIN-SUFFIX,githubstatus.com
+DOMAIN-SUFFIX,ghcr.io
+DOMAIN-SUFFIX,git-scm.com
+DOMAIN-SUFFIX,gitbook.io
+DOMAIN-SUFFIX,githubcopilot.com
+DOMAIN,copilot-telemetry.githubusercontent.com
+DOMAIN,origin-tracker.githubusercontent.com
+DOMAIN,copilot-proxy.githubusercontent.com
+DOMAIN-SUFFIX,github.dev
+DOMAIN-SUFFIX,github.community
+
+# Package / Runtime
+DOMAIN-SUFFIX,docker.com
+DOMAIN-SUFFIX,docker.io
+DOMAIN-SUFFIX,ubuntu.com
+DOMAIN-SUFFIX,pypi.org
+DOMAIN-SUFFIX,python.org
+DOMAIN-SUFFIX,pythonhosted.org
+DOMAIN-SUFFIX,readthedocs.io
+DOMAIN-SUFFIX,go.dev
+DOMAIN-SUFFIX,npmjs.com
+DOMAIN-SUFFIX,brew.sh
+
+# IDE / Editor
+DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,cursor.com
+DOMAIN-SUFFIX,cursorapi.com
+DOMAIN-SUFFIX,cursor-cdn.com
+DOMAIN-SUFFIX,kiro.dev
+DOMAIN-SUFFIX,jetbrains.com
+DOMAIN,vsmarketplacebadge.apphb.com
+DOMAIN,default.exp-tas.com
+DOMAIN,webpubsub.azure.com

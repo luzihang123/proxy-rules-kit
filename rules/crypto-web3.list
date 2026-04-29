@@ -1,0 +1,31 @@
+# Crypto / Web3 / 数字货币
+# 策略建议：走日本或新加坡节点（避开美国对加密货币的监管政策）
+
+# Binance
+DOMAIN-SUFFIX,binance.com
+DOMAIN-SUFFIX,binance.me
+DOMAIN-SUFFIX,binance.cloud
+DOMAIN-SUFFIX,bnbstatic.com
+
+# OKX
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okx.com.hk
+DOMAIN-SUFFIX,okex.com
+DOMAIN-SUFFIX,okx-cdn.com
+
+# Other Exchanges
+DOMAIN-SUFFIX,bybit.com
+DOMAIN-SUFFIX,bitget.com
+DOMAIN-SUFFIX,hashkey.com
+
+# Market Data / Tools
+DOMAIN-SUFFIX,aicoin.com
+DOMAIN-SUFFIX,geckoterminal.com
+DOMAIN-SUFFIX,futunn.com
+DOMAIN-SUFFIX,mytokencap.com
+
+# DeFi / Chain
+DOMAIN-SUFFIX,aftermath.finance
+DOMAIN-SUFFIX,sui.io
+DOMAIN-SUFFIX,chainbuzz.xyz
+DOMAIN-SUFFIX,chainfeeds.xyz

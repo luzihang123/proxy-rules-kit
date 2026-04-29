@@ -1,0 +1,6 @@
+# 直连规则（不走代理）
+# 这里仅保留示例域名。请在自己的私有配置中替换为真实企业/内网域名。
+
+DOMAIN-SUFFIX,corp.example.com
+DOMAIN-SUFFIX,internal.example.test
+DOMAIN,portal.corp.example.com

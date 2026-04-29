@@ -1,0 +1,405 @@
+# =====================================================
+# RouteKit · OpenClash 自定义覆写文件
+# 路由器路径: /etc/openclash/custom/openclash_custom_overwrite.yaml
+# =====================================================
+# 适用内核: Clash Meta (Mihomo)
+# 设计参考: clients/clash-verge-rev/generic-script.js
+#           clients/shadowrocket/routekit.conf
+# 三端策略组命名一致，节点排序逻辑一致
+# =====================================================
+# 这个文件做什么:
+#   1. 覆写 DNS 设置（含 fake-ip-filter，避免企业/内网域名走 fake-ip）
+#   2. 覆写 proxy-groups（生成 RouteKit-* 业务组 + 地区组双层结构）
+#   3. 不覆写 rules，规则统一走 custom_rules.list / custom_rules_2.list
+# =====================================================
+# 注意:
+#   - 业务组排序逻辑见同目录 README.md 和 clients/clash-verge-rev/README.md
+#   - filter 使用 Go 正则，(?i) 表示不区分大小写
+#   - include-all-proxies: true 会自动把订阅里的所有节点纳入候选
+#   - 修改后需要在 OpenClash Web UI 重启服务才生效
+# =====================================================
+
+# ────────────────────────────────────────────────────
+# DNS（关键: fake-ip-filter 必须含企业/内网域名）
+# ────────────────────────────────────────────────────
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  # fake-ip-filter: 这些域名不走 fake-ip，由系统 DNS 真实解析
+  # 这是企业/内网域名能通过 RouteKit-DIRECT 真实访问的关键
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "*.localdomain"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.example"
+    - "*.alibaba.com"
+    - "*.taobao.com"
+    - "*.tmall.com"
+    - "*.alipay.com"
+    # 企业/内网域名示例：避免 fake-ip 影响 RouteKit-DIRECT 访问，按需替换
+    - "*.corp.example.com"
+    - "*.internal.example.test"
+    - "corp.example.com"
+    - "internal.example.test"
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+
+# ────────────────────────────────────────────────────
+# 策略组（地区组 + RouteKit 业务组）
+# ────────────────────────────────────────────────────
+# 策略组排序: RouteKit 业务组在前（用户常用），地区组在后
+proxy-groups:
+  # ═══ RouteKit 业务组（按业务风险/速度排序节点）═══
+  - name: RouteKit-DIRECT
+    type: select
+    proxies:
+      - DIRECT
+
+  # Claude / Anthropic
+  # 美国优先（可用性），尼日利亚作为汇率/计费可选项，再降级到日本/新加坡/港台
+  - name: 🤖 RouteKit-Claude
+    type: select
+    proxies:
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇳🇬 尼日利亚自动
+      - 🇳🇬 尼日利亚节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - RouteKit-DIRECT
+
+  # ChatGPT / OpenAI
+  - name: 🤖 RouteKit-ChatGPT
+    type: select
+    proxies:
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - RouteKit-DIRECT
+
+  # Gemini / Google AI
+  - name: 🤖 RouteKit-Gemini
+    type: select
+    proxies:
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - RouteKit-DIRECT
+
+  # Grok / xAI（同 Twitter 路线: 近区优先）
+  - name: 🤖 RouteKit-Grok
+    type: select
+    proxies:
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - RouteKit-DIRECT
+
+  # 通用 AI 工具（dify / perplexity / manus 等）
+  - name: 🤖 RouteKit-AI
+    type: select
+    proxies:
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - RouteKit-DIRECT
+
+  # YouTube（速度敏感: 香港/日本优先）
+  - name: 📺 RouteKit-YouTube
+    type: select
+    proxies:
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - RouteKit-DIRECT
+
+  # Spotify（注册地新加坡，避免风控）
+  - name: 🎵 RouteKit-Spotify
+    type: select
+    proxies:
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - RouteKit-DIRECT
+
+  # Google 服务（搜索/Gmail/Drive 等）
+  - name: 🛠 RouteKit-Dev-US
+    type: select
+    proxies:
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - RouteKit-DIRECT
+
+  # Cursor IDE（延迟敏感）
+  - name: 🖥 RouteKit-Cursor
+    type: select
+    proxies:
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - RouteKit-DIRECT
+
+  # GitHub / Docker / PyPI / JetBrains 等开发资源
+  - name: 🔧 RouteKit-Dev
+    type: select
+    proxies:
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - RouteKit-DIRECT
+
+  # 加密货币交易所（IP 风控敏感）
+  - name: 🪙 RouteKit-Crypto-Web3
+    type: select
+    proxies:
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - RouteKit-DIRECT
+
+  # Twitter / X
+  - name: 🐦 RouteKit-Twitter
+    type: select
+    proxies:
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - RouteKit-DIRECT
+
+  # 通用代理 / 兜底
+  - name: 🌍 RouteKit-Proxy
+    type: select
+    proxies:
+      - 🇭🇰 香港自动
+      - 🇯🇵 日本自动
+      - 🇸🇬 新加坡自动
+      - 🇹🇼 台湾自动
+      - 🇺🇲 美国自动
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾节点
+      - 🇺🇲 美国节点
+      - 🇳🇬 尼日利亚节点
+      - 🇬🇧 英国节点
+      - 🇨🇦 加拿大节点
+      - 🇩🇪 德国节点
+      - RouteKit-DIRECT
+
+  # ═══ 地区组（自动测速）═══
+  # 用 url-test 自动选当前地区最快节点
+  # filter 按节点名匹配；include-all-proxies 让订阅节点自动并入
+
+  - name: 🇭🇰 香港自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)香港|香港HK|香港WAP|HongKong|Hong Kong|HK|🇭🇰"
+
+  - name: 🇹🇼 台湾自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)台湾|台北|Taiwan|TW|🇨🇳\\s*台湾|🇹🇼"
+
+  - name: 🇺🇲 美国自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|United States|USA|US|🇺🇸|🇺🇲"
+
+  - name: 🇸🇬 新加坡自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)新加坡|海外用户专用-新加坡|Singapore|SG|🇸🇬"
+
+  - name: 🇯🇵 日本自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)日本|日本JP|东京|海外用户专用-日本|Japan|JP|🇯🇵"
+
+  - name: 🇬🇧 英国自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)英国|United Kingdom|UK|🇬🇧"
+
+  - name: 🇨🇦 加拿大自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)加拿大|Canada|CA|🇨🇦"
+
+  - name: 🇩🇪 德国自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)德国|德国DE|Germany|DE|🇩🇪"
+
+  - name: 🇳🇬 尼日利亚自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)尼日利亚|尼日|Nigeria|NG|🇳🇬"
+
+  # ═══ 地区组（手动选择）═══
+
+  - name: 🇭🇰 香港节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)香港|香港HK|香港WAP|HongKong|Hong Kong|HK|🇭🇰"
+
+  - name: 🇹🇼 台湾节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)台湾|台北|Taiwan|TW|🇨🇳\\s*台湾|🇹🇼"
+
+  - name: 🇺🇲 美国节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|United States|USA|US|🇺🇸|🇺🇲"
+
+  - name: 🇸🇬 新加坡节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)新加坡|海外用户专用-新加坡|Singapore|SG|🇸🇬"
+
+  - name: 🇯🇵 日本节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)日本|日本JP|东京|海外用户专用-日本|Japan|JP|🇯🇵"
+
+  - name: 🇬🇧 英国节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)英国|United Kingdom|UK|🇬🇧"
+
+  - name: 🇨🇦 加拿大节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)加拿大|Canada|CA|🇨🇦"
+
+  - name: 🇩🇪 德国节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)德国|德国DE|Germany|DE|🇩🇪"
+
+  - name: 🇳🇬 尼日利亚节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)尼日利亚|尼日|Nigeria|NG|🇳🇬"

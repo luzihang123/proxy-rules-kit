@@ -1,0 +1,13 @@
+# 常见上游策略组命名示例，用于改写 provider-template-script.js 的 UPSTREAM_FALLBACKS。
+
+providers:
+  provider-a:
+    upstream_fallbacks:
+      - Proxy
+      - Auto
+      - RouteKit-DIRECT
+  provider-b:
+    upstream_fallbacks:
+      - 节点选择
+      - 自动选择
+      - RouteKit-DIRECT

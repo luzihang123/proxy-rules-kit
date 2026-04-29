@@ -1,0 +1,196 @@
+# =====================================================
+# RouteKit · Shadowrocket Rule Set (Lite)
+# 精简版：保留 AI + 基础代理规则（由脚本生成）
+# =====================================================
+
+# =====================================================
+# RouteKit · Shadowrocket Rule Set
+# 以 Clash 规则为蓝本，适配 Shadowrocket/Surge 规则格式
+# =====================================================
+
+# ========= 🤖 RouteKit-Claude（Anthropic 系）=========
+DOMAIN-KEYWORD,claude,RouteKit-Claude
+DOMAIN-KEYWORD,anthropic,RouteKit-Claude
+DOMAIN-SUFFIX,claude.ai,RouteKit-Claude
+DOMAIN-SUFFIX,anthropic.com,RouteKit-Claude
+
+# ========= 🤖 RouteKit-ChatGPT（OpenAI 系）=========
+DOMAIN-KEYWORD,chatgpt,RouteKit-ChatGPT
+DOMAIN-KEYWORD,openai,RouteKit-ChatGPT
+DOMAIN-KEYWORD,oaiusercontent,RouteKit-ChatGPT
+DOMAIN,openaiapi-site.azureedge.net,RouteKit-ChatGPT
+DOMAIN,production-openaicom-storage.azureedge.net,RouteKit-ChatGPT
+DOMAIN,openaicom.imgix.net,RouteKit-ChatGPT
+DOMAIN,chatgpt.livekit.cloud,RouteKit-ChatGPT
+DOMAIN,host.livekit.cloud,RouteKit-ChatGPT
+DOMAIN,turn.livekit.cloud,RouteKit-ChatGPT
+DOMAIN-SUFFIX,chatgpt.com,RouteKit-ChatGPT
+DOMAIN-SUFFIX,chat.com,RouteKit-ChatGPT
+DOMAIN-SUFFIX,openai.com,RouteKit-ChatGPT
+DOMAIN-SUFFIX,oaistatic.com,RouteKit-ChatGPT
+DOMAIN-SUFFIX,oaiusercontent.com,RouteKit-ChatGPT
+DOMAIN-SUFFIX,sora.com,RouteKit-ChatGPT
+
+# ========= 🤖 RouteKit-Gemini（Google AI 系）=========
+DOMAIN-KEYWORD,gemini,RouteKit-Gemini
+DOMAIN-KEYWORD,generativelanguage,RouteKit-Gemini
+DOMAIN-KEYWORD,aistudio,RouteKit-Gemini
+DOMAIN,generativelanguage.googleapis.com,RouteKit-Gemini
+DOMAIN,gemini.google.com,RouteKit-Gemini
+DOMAIN,aistudio.google.com,RouteKit-Gemini
+DOMAIN,ai.google.dev,RouteKit-Gemini
+DOMAIN,makersuite.google.com,RouteKit-Gemini
+DOMAIN,notebooklm.google.com,RouteKit-Gemini
+DOMAIN-SUFFIX,deepmind.google,RouteKit-Gemini
+DOMAIN-SUFFIX,deepmind.com,RouteKit-Gemini
+DOMAIN-SUFFIX,labs.google,RouteKit-Gemini
+DOMAIN-SUFFIX,jules.google,RouteKit-Gemini
+DOMAIN-SUFFIX,notebooklm.google,RouteKit-Gemini
+DOMAIN-SUFFIX,generativeai.google,RouteKit-Gemini
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,RouteKit-Gemini
+DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com,RouteKit-Gemini
+DOMAIN-SUFFIX,geller-pa.googleapis.com,RouteKit-Gemini
+DOMAIN-SUFFIX,aisandbox-pa.googleapis.com,RouteKit-Gemini
+DOMAIN-SUFFIX,aida.googleapis.com,RouteKit-Gemini
+DOMAIN-SUFFIX,bard.google.com,RouteKit-Gemini
+
+# ========= 🤖 RouteKit-Grok（xAI 系）=========
+DOMAIN-KEYWORD,grok,RouteKit-Grok
+DOMAIN-SUFFIX,grok.com,RouteKit-Grok
+DOMAIN-SUFFIX,x.ai,RouteKit-Grok
+
+# ========= 🤖 RouteKit-AI（通用 AI / 其他 AI 工具）=========
+DOMAIN-SUFFIX,dify.ai,RouteKit-AI
+DOMAIN-SUFFIX,ollama.ai,RouteKit-AI
+DOMAIN-SUFFIX,perplexity.ai,RouteKit-AI
+DOMAIN-SUFFIX,manus.im,RouteKit-AI
+DOMAIN-SUFFIX,withgoogle.com,RouteKit-AI
+DOMAIN,stitch.withgoogle.com,RouteKit-AI
+
+# ========= 🏢 企业/内网直连 =========
+# Shadowrocket 工作在 iOS VPN/TUN 层，所有流量都经过它。
+# 不同于 Clash Verge Rev 可在"系统代理绕过"里填域名（流量根本不进 Clash），
+# Shadowrocket 没有等价的系统级绕过入口，唯一出路是在规则文件里加 DIRECT。
+
+# ========= 🎵 RouteKit-Spotify（走新加坡，注册地风控）=========
+DOMAIN-KEYWORD,spotify,RouteKit-Spotify
+DOMAIN-SUFFIX,spotify.com,RouteKit-Spotify
+DOMAIN-SUFFIX,spotifycdn.com,RouteKit-Spotify
+DOMAIN-SUFFIX,scdn.co,RouteKit-Spotify
+DOMAIN-SUFFIX,spotify.design,RouteKit-Spotify
+DOMAIN-SUFFIX,spotilocal.com,RouteKit-Spotify
+DOMAIN-SUFFIX,tospotify.com,RouteKit-Spotify
+DOMAIN-SUFFIX,pscdn.co,RouteKit-Spotify
+
+# ========= 📺 RouteKit-YouTube（走香港/日本快速线路）=========
+DOMAIN,www.youtube.com,RouteKit-YouTube
+DOMAIN,m.youtube.com,RouteKit-YouTube
+DOMAIN,music.youtube.com,RouteKit-YouTube
+DOMAIN,youtubei.googleapis.com,RouteKit-YouTube
+DOMAIN-SUFFIX,youtube.com,RouteKit-YouTube
+DOMAIN-SUFFIX,youtu.be,RouteKit-YouTube
+DOMAIN-SUFFIX,ytimg.com,RouteKit-YouTube
+DOMAIN-SUFFIX,googlevideo.com,RouteKit-YouTube
+DOMAIN-SUFFIX,youtubei.googleapis.com,RouteKit-YouTube
+DOMAIN-SUFFIX,youtube-nocookie.com,RouteKit-YouTube
+
+# ========= 🛠 RouteKit-Dev-US（Google 反重力，走美国）=========
+DOMAIN-SUFFIX,google.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,google,RouteKit-Dev-US
+DOMAIN-SUFFIX,googleapis.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,gstatic.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googletagmanager.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,google-analytics.com,RouteKit-Dev-US
+
+# ========= 🖥 RouteKit-Cursor（Cursor IDE，走日本/台湾）=========
+DOMAIN-SUFFIX,cursor.sh,RouteKit-Cursor
+DOMAIN-SUFFIX,cursor.com,RouteKit-Cursor
+DOMAIN-SUFFIX,cursorapi.com,RouteKit-Cursor
+DOMAIN-SUFFIX,cursor-cdn.com,RouteKit-Cursor
+
+# ========= 🔧 RouteKit-Dev（开发工具，走日本/新加坡）=========
+# GitHub
+DOMAIN,api.github.com,RouteKit-Dev
+DOMAIN,gist.github.com,RouteKit-Dev
+DOMAIN,copilot-telemetry.githubusercontent.com,RouteKit-Dev
+DOMAIN,origin-tracker.githubusercontent.com,RouteKit-Dev
+DOMAIN,copilot-proxy.githubusercontent.com,RouteKit-Dev
+DOMAIN-SUFFIX,github.com,RouteKit-Dev
+DOMAIN-SUFFIX,github.io,RouteKit-Dev
+DOMAIN-SUFFIX,githubusercontent.com,RouteKit-Dev
+DOMAIN-SUFFIX,githubassets.com,RouteKit-Dev
+DOMAIN-SUFFIX,githubstatus.com,RouteKit-Dev
+DOMAIN-SUFFIX,ghcr.io,RouteKit-Dev
+DOMAIN-SUFFIX,git-scm.com,RouteKit-Dev
+DOMAIN-SUFFIX,gitbook.io,RouteKit-Dev
+DOMAIN-SUFFIX,githubcopilot.com,RouteKit-Dev
+DOMAIN-SUFFIX,github.dev,RouteKit-Dev
+DOMAIN-SUFFIX,github.community,RouteKit-Dev
+
+# Package / Runtime
+DOMAIN-SUFFIX,docker.com,RouteKit-Dev
+DOMAIN-SUFFIX,docker.io,RouteKit-Dev
+DOMAIN-SUFFIX,ubuntu.com,RouteKit-Dev
+DOMAIN-SUFFIX,pypi.org,RouteKit-Dev
+DOMAIN-SUFFIX,python.org,RouteKit-Dev
+DOMAIN-SUFFIX,pythonhosted.org,RouteKit-Dev
+DOMAIN-SUFFIX,readthedocs.io,RouteKit-Dev
+DOMAIN-SUFFIX,go.dev,RouteKit-Dev
+DOMAIN-SUFFIX,npmjs.com,RouteKit-Dev
+DOMAIN-SUFFIX,brew.sh,RouteKit-Dev
+DOMAIN-SUFFIX,kiro.dev,RouteKit-Dev
+DOMAIN-SUFFIX,jetbrains.com,RouteKit-Dev
+DOMAIN,vsmarketplacebadge.apphb.com,RouteKit-Dev
+DOMAIN,default.exp-tas.com,RouteKit-Dev
+DOMAIN,webpubsub.azure.com,RouteKit-Dev
+DOMAIN-SUFFIX,azure.com,RouteKit-Dev
+
+# ========= 🪙 RouteKit-Crypto-Web3（走日本/新加坡）=========
+DOMAIN-SUFFIX,binance.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,binance.me,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,binance.cloud,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,bnbstatic.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,okx.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,okx.com.hk,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,okex.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,okx-cdn.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,bybit.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,bitget.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,aicoin.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,geckoterminal.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,futunn.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,mytokencap.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,aftermath.finance,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,sui.io,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,hashkey.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,chainbuzz.xyz,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,chainfeeds.xyz,RouteKit-Crypto-Web3
+
+# ========= 🐦 RouteKit-Twitter（Twitter / X，走日本/新加坡）=========
+DOMAIN-KEYWORD,twitter,RouteKit-Twitter
+DOMAIN,abs.twimg.com,RouteKit-Twitter
+DOMAIN,pbs.twimg.com,RouteKit-Twitter
+DOMAIN,video.twimg.com,RouteKit-Twitter
+DOMAIN-SUFFIX,twitter.com,RouteKit-Twitter
+DOMAIN-SUFFIX,x.com,RouteKit-Twitter
+DOMAIN-SUFFIX,t.co,RouteKit-Twitter
+DOMAIN-SUFFIX,twimg.com,RouteKit-Twitter
+DOMAIN-SUFFIX,twitterstatic.com,RouteKit-Twitter
+DOMAIN-SUFFIX,twitteroauth.com,RouteKit-Twitter
+DOMAIN-SUFFIX,tweetdeck.com,RouteKit-Twitter
+
+# ========= 🌍 RouteKit-Proxy（通用代理）=========
+# Messaging / Microsoft / Apple
+DOMAIN-SUFFIX,telegram.org,RouteKit-Proxy
+DOMAIN-SUFFIX,microsoft.com,RouteKit-Proxy
+DOMAIN-SUFFIX,live.com,RouteKit-Proxy
+DOMAIN-SUFFIX,office.com,RouteKit-Proxy
+DOMAIN-SUFFIX,office365.com,RouteKit-Proxy
+DOMAIN-SUFFIX,sharepoint.com,RouteKit-Proxy
+DOMAIN-SUFFIX,onmicrosoft.com,RouteKit-Proxy
+DOMAIN-SUFFIX,windows.net,RouteKit-Proxy
+DOMAIN-SUFFIX,icloud.com,RouteKit-Proxy
+DOMAIN-SUFFIX,apple-cloudkit.com,RouteKit-Proxy
+
+# 兜底
+FINAL,RouteKit-Proxy

@@ -1,0 +1,22 @@
+# Local secrets and generated identifiers
+.env
+.envrc
+scripts/.gist-id
+subscriptions/subscriptions.yaml
+*.local.yaml
+*.local.yml
+*.secret.yaml
+*.secret.yml
+
+# OS / editor noise
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/

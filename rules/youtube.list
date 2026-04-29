@@ -1,0 +1,13 @@
+# YouTube / Google Video
+# 策略建议：走香港 / 日本快速线路，和 Google AI / 其他 Google 服务分开
+
+DOMAIN-SUFFIX,youtube.com
+DOMAIN-SUFFIX,youtu.be
+DOMAIN-SUFFIX,ytimg.com
+DOMAIN-SUFFIX,googlevideo.com
+DOMAIN-SUFFIX,youtubei.googleapis.com
+DOMAIN-SUFFIX,youtube-nocookie.com
+DOMAIN,youtubei.googleapis.com
+DOMAIN,www.youtube.com
+DOMAIN,m.youtube.com
+DOMAIN,music.youtube.com

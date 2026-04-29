@@ -1,0 +1,10 @@
+# 人工构造的节点命名样例，不来自真实订阅。
+proxies:
+  - { name: "US-01", type: ss, server: example.com, port: 443, cipher: aes-128-gcm, password: example }
+  - { name: "JP Tokyo 01", type: ss, server: example.com, port: 443, cipher: aes-128-gcm, password: example }
+  - { name: "HK-01", type: ss, server: example.com, port: 443, cipher: aes-128-gcm, password: example }
+  - { name: "Singapore-01", type: ss, server: example.com, port: 443, cipher: aes-128-gcm, password: example }
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies: [US-01, JP Tokyo 01, HK-01, Singapore-01]
