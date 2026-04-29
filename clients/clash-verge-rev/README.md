@@ -5,7 +5,7 @@
 ## 推荐方式
 
 1. 打开 Clash Verge Rev 的订阅页。
-2. 右键目标订阅卡片，选择“编辑脚本”。
+2. 右键目标订阅卡片，选择“扩展脚本”。
 3. 粘贴 `generic-script.js`，保存并刷新订阅。
 4. 如果某个服务商的上游策略组命名特殊，复制 `provider-templates/provider-template-script.js` 后修改 `UPSTREAM_FALLBACKS`。
 

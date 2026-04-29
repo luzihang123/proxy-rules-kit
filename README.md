@@ -1,6 +1,6 @@
 # Proxy Rules Kit
 
-给经常切换设备、客户端和订阅的人准备的一套代理分流模板：让 AI、YouTube、Spotify、Web3、开发工具和企业内网各走各自更合适的线路。
+给经常切换设备、客户端和订阅的人准备的一套代理分流模板：让 AI（如 Claude）、YouTube、Spotify、Web3、开发工具和企业内网各走各自更合适的线路。
 
 ## 解决什么问题
 
@@ -57,14 +57,14 @@
 适合桌面端使用。节点仍然来自你自己的订阅，RouteKit 只负责在订阅更新后自动注入规则和策略组。
 
 1. 打开 Clash Verge Rev，进入“订阅”页面。
-2. 找到你的订阅卡片，右键选择“编辑脚本”。
+2. 找到你的订阅卡片，右键选择“扩展脚本”。
 3. 打开并复制这份脚本内容：
 
 ```text
 https://raw.githubusercontent.com/luzihang123/proxy-rules-kit/main/clients/clash-verge-rev/generic-script.js
 ```
 
-4. 粘贴到“编辑脚本”窗口，保存。
+4. 粘贴到“扩展脚本”窗口，保存。
 5. 刷新该订阅，策略组里应能看到 `RouteKit-*` 分组。
 
 如果你的订阅节点命名比较特殊，调整脚本里的 `REGION_FILTERS` 即可，例如把 `HK`、`Hong Kong`、`香港` 都匹配到香港节点组。
