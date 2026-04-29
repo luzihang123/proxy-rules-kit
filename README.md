@@ -52,10 +52,39 @@
 
 ## 快速开始
 
-1. 复制 `subscriptions/subscriptions.example.yaml` 为自己的私有 `subscriptions/subscriptions.yaml`，填入真实订阅。该文件已被 `.gitignore` 忽略。
-2. 按客户端导入对应目录下的模板。
-3. 按自己的节点命名调整地区正则，例如 `HK|Hong Kong|香港`。
-4. 运行 `make check` 检查 Shadowrocket 规则和敏感字段。
+### Clash Verge Rev：给订阅加扩展脚本
+
+适合桌面端使用。节点仍然来自你自己的订阅，RouteKit 只负责在订阅更新后自动注入规则和策略组。
+
+1. 打开 Clash Verge Rev，进入“订阅”页面。
+2. 找到你的订阅卡片，右键选择“编辑脚本”。
+3. 打开并复制这份脚本内容：
+
+```text
+https://raw.githubusercontent.com/luzihang123/proxy-rules-kit/main/clients/clash-verge-rev/generic-script.js
+```
+
+4. 粘贴到“编辑脚本”窗口，保存。
+5. 刷新该订阅，策略组里应能看到 `RouteKit-*` 分组。
+
+如果你的订阅节点命名比较特殊，调整脚本里的 `REGION_FILTERS` 即可，例如把 `HK`、`Hong Kong`、`香港` 都匹配到香港节点组。
+
+### Shadowrocket：导入完整配置文件
+
+适合 iOS 使用。先导入自己的节点订阅，再导入 RouteKit 配置文件，配置会自动创建分组和规则。
+
+1. 在 Shadowrocket 首页添加自己的订阅，确认节点能正常更新。
+2. 进入“配置”页面，点击右上角 `+`。
+3. 选择“从 URL 导入”，填入：
+
+```text
+https://raw.githubusercontent.com/luzihang123/proxy-rules-kit/main/clients/shadowrocket/routekit.conf
+```
+
+4. 导入后点击该配置并选择“使用”。
+5. 回到首页开启代理，模式选择规则模式。
+
+如果某些分组没有匹配到节点，编辑 `routekit.conf` 里的 `policy-regex-filter`，按你的节点名称补充地区关键词。
 
 ## 重要安全约定
 
