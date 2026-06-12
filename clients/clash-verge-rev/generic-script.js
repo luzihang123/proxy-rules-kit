@@ -24,6 +24,7 @@
 //      - 🔧 RouteKit-Dev
 //      - 🎵 RouteKit-Spotify
 //      - 🪙 RouteKit-Crypto-Web3
+//      - 📈 RouteKit-Broker
 //      - 🌍 RouteKit-Proxy
 //   5. 最后把自定义规则和策略组插回原始配置里，形成最终生效配置
 //
@@ -122,6 +123,7 @@ const CUSTOM_GROUP_NAMES = new Set([
   "🔧 RouteKit-Dev",
   "🎵 RouteKit-Spotify",
   "🪙 RouteKit-Crypto-Web3",
+  "📈 RouteKit-Broker",
   ...Object.keys(REGION_FILTERS).flatMap((name) => [name, autoRegionName(name)]),
 ]);
 
@@ -214,13 +216,28 @@ const CUSTOM_RULES = [
   "DOMAIN-SUFFIX,bitget.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,aicoin.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,geckoterminal.com,🪙 RouteKit-Crypto-Web3",
-  "DOMAIN-SUFFIX,futunn.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,mytokencap.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,aftermath.finance,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,sui.io,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,hashkey.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,chainbuzz.xyz,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,chainfeeds.xyz,🪙 RouteKit-Crypto-Web3",
+
+  // Brokers: LongBridge / Futu / Tiger（港资券商，香港节点优先）
+  "DOMAIN-SUFFIX,longportapp.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,longbridgeapp.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,longbridge.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,longbridge.global,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,lbkrs.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,lbcdn.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,futunn.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,futubull.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,moomoo.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,futu5.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,itiger.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,tigerbrokers.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,tigertrade.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,tigerfintech.com,📈 RouteKit-Broker",
 
   // Google（走美国）
   "DOMAIN-SUFFIX,google.com,🛠 RouteKit-Dev-US",
@@ -579,6 +596,23 @@ function main(config, profileName) {
         ...regionNames.filter((n) => n.includes("日本") || n.includes("新加坡")),
         ...regionNames.filter(
           (n) => !n.includes("日本") && !n.includes("新加坡")
+        ),
+        ...upstreamFallbacks,
+        "RouteKit-DIRECT",
+      ]),
+    },
+    {
+      name: "📈 RouteKit-Broker",
+      type: "select",
+      proxies: unique([
+        ...regionNames.filter((n) => n.includes("香港")),
+        ...regionNames.filter((n) => n.includes("日本")),
+        ...regionNames.filter((n) => n.includes("台湾")),
+        ...regionNames.filter((n) => n.includes("新加坡")),
+        ...regionNames.filter((n) => n.includes("美国")),
+        ...regionNames.filter(
+          (n) =>
+            !["香港", "日本", "台湾", "新加坡", "美国"].some((k) => n.includes(k))
         ),
         ...upstreamFallbacks,
         "RouteKit-DIRECT",

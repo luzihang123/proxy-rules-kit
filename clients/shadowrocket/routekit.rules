@@ -157,7 +157,6 @@ DOMAIN-SUFFIX,bybit.com,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,bitget.com,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,aicoin.com,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,geckoterminal.com,RouteKit-Crypto-Web3
-DOMAIN-SUFFIX,futunn.com,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,mytokencap.com,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,aftermath.finance,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,sui.io,RouteKit-Crypto-Web3
@@ -165,6 +164,21 @@ DOMAIN-SUFFIX,hashkey.com,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,chainbuzz.xyz,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,chainfeeds.xyz,RouteKit-Crypto-Web3
 
+# ========= 📈 RouteKit-Broker（港资券商：长桥 / 富途 / 老虎）=========
+DOMAIN-SUFFIX,longportapp.com,RouteKit-Broker
+DOMAIN-SUFFIX,longbridgeapp.com,RouteKit-Broker
+DOMAIN-SUFFIX,longbridge.com,RouteKit-Broker
+DOMAIN-SUFFIX,longbridge.global,RouteKit-Broker
+DOMAIN-SUFFIX,lbkrs.com,RouteKit-Broker
+DOMAIN-SUFFIX,lbcdn.com,RouteKit-Broker
+DOMAIN-SUFFIX,futunn.com,RouteKit-Broker
+DOMAIN-SUFFIX,futubull.com,RouteKit-Broker
+DOMAIN-SUFFIX,moomoo.com,RouteKit-Broker
+DOMAIN-SUFFIX,futu5.com,RouteKit-Broker
+DOMAIN-SUFFIX,itiger.com,RouteKit-Broker
+DOMAIN-SUFFIX,tigerbrokers.com,RouteKit-Broker
+DOMAIN-SUFFIX,tigertrade.com,RouteKit-Broker
+DOMAIN-SUFFIX,tigerfintech.com,RouteKit-Broker
 # ========= 🐦 RouteKit-Twitter（Twitter / X，走日本/新加坡）=========
 DOMAIN-KEYWORD,twitter,RouteKit-Twitter
 DOMAIN,abs.twimg.com,RouteKit-Twitter
