@@ -15,3 +15,30 @@
 - `routekit-lite.rules`：精简规则，由 `scripts/sync_shadowrocket_rules.py` 生成。
 
 真实 Gist ID 或 Raw URL 不应提交到公开仓库，可以写在自己的私有笔记或本地 `.env` 中。
+
+## 策略组说明
+
+| 组名 | 类型 | 默认地区 | 说明 |
+|------|------|---------|------|
+| `RouteKit-Claude` | url-test | 美国 | Anthropic 非美 IP 会被拒绝 |
+| `RouteKit-ChatGPT` | select | 美国优先 | OpenAI 系服务 |
+| `RouteKit-Gemini` | select | 美国优先 | Google AI 系服务 |
+| `RouteKit-Grok` | select | 日本/新加坡 | xAI 服务 |
+| `RouteKit-AI` | select | 美国优先 | 通用 AI 工具 |
+| `RouteKit-YouTube` | url-test | 日本/新加坡 | 速度优先 |
+| `RouteKit-Spotify` | select | 新加坡固定 | 账号注册地，切区触发风控 |
+| `RouteKit-Dev-US` | select | 美国 | 需要美国出口的开发场景 |
+| `RouteKit-Dev` | url-test | 日本/新加坡 | GitHub、Docker、PyPI 等 |
+| `RouteKit-Cursor` | url-test | 日本/台湾 | IDE 补全延迟敏感 |
+| `RouteKit-Crypto-Web3` | select | 日本/新加坡 | 交易所，select 锁定避免频繁换 IP |
+| `RouteKit-Broker` | select | **香港优先** | 港资券商，见下方说明 |
+| `RouteKit-Twitter` | url-test | 日本/新加坡 | 近区优先 |
+| `RouteKit-Proxy` | url-test | 全部节点 | 兜底 |
+
+### RouteKit-Broker：港资券商
+
+长桥（LongBridge/Longport）、富途（Futu/Moomoo）、老虎证券（Tiger Brokers）均为港资持牌券商，交易撮合与行情服务器主要位于香港，**默认选香港节点延迟最低**；备选顺序：日本 → 台湾 → 新加坡 → 美国。
+
+`policy-regex-filter` 覆盖关键词：`香港|🇭🇰|HK|Hong Kong|日本|🇯🇵|台湾|🇹🇼|新加坡|🇸🇬|美国|🇺🇸`
+
+> `futunn.com`（富途）原归入 `RouteKit-Crypto-Web3`，已迁移至本组。
