@@ -11,9 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FULL = ROOT / "clients" / "shadowrocket" / "routekit.rules"
 LITE = ROOT / "clients" / "shadowrocket" / "routekit-lite.rules"
 
-DROP_KEYWORDS = {
-    "CDN / Cloud",
-    "Crypto / Web3",
+DROP_HEADERS = {
     "Knowledge / Tools / Others",
     "IP",
 }
@@ -24,14 +22,14 @@ def _is_header(line: str) -> bool:
 
 
 def _should_drop(header_text: str) -> bool:
-    return any(key in header_text for key in DROP_KEYWORDS)
+    return header_text in DROP_HEADERS
 
 
 def build_lite(full_lines: list[str]) -> list[str]:
     # Start from the first rule section header to avoid duplicating full header.
     body_start = None
     for i, line in enumerate(full_lines):
-        if line.startswith("# ========="):
+        if line.startswith("# =========") and line.strip("# =\n"):
             body_start = i
             break
     if body_start is None:
@@ -58,7 +56,7 @@ def build_lite(full_lines: list[str]) -> list[str]:
     header = [
         "# =====================================================\n",
         "# RouteKit · Shadowrocket Rule Set (Lite)\n",
-        "# 精简版：保留 AI + 基础代理规则（由脚本生成）\n",
+        "# 精简版：核心分流规则，去掉 Others 杂项域名\n",
         "# =====================================================\n",
         "\n",
     ]

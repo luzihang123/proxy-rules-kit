@@ -1,11 +1,6 @@
 # =====================================================
 # RouteKit · Shadowrocket Rule Set (Lite)
-# 精简版：保留 AI + 基础代理规则（由脚本生成）
-# =====================================================
-
-# =====================================================
-# RouteKit · Shadowrocket Rule Set
-# 以 Clash 规则为蓝本，适配 Shadowrocket/Surge 规则格式
+# 精简版：核心分流规则，去掉 Others 杂项域名
 # =====================================================
 
 # ========= 🤖 RouteKit-Claude（Anthropic 系）=========
@@ -101,6 +96,36 @@ DOMAIN-SUFFIX,googleapis.com,RouteKit-Dev-US
 DOMAIN-SUFFIX,gstatic.com,RouteKit-Dev-US
 DOMAIN-SUFFIX,googletagmanager.com,RouteKit-Dev-US
 DOMAIN-SUFFIX,google-analytics.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,goo.gle,RouteKit-Dev-US
+DOMAIN-SUFFIX,1e100.net,RouteKit-Dev-US
+DOMAIN-SUFFIX,2mdn.net,RouteKit-Dev-US
+DOMAIN-SUFFIX,admob.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,adsense.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,appspot.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,blogger.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,blogspot.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,doubleclick.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,doubleclick.net,RouteKit-Dev-US
+DOMAIN-SUFFIX,firebaseapp.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,firebaseio.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,g.co,RouteKit-Dev-US
+DOMAIN-SUFFIX,ggpht.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,gmail.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googleadservices.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googleanalytics.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googledrive.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googlemail.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googlephotos.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googlesyndication.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googletagservices.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googletraveladservices.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googleusercontent.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,gvt0.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,gvt1.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,gvt2.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,gvt3.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,recaptcha.net,RouteKit-Dev-US
+DOMAIN-KEYWORD,google,RouteKit-Dev-US
 
 # ========= 🖥 RouteKit-Cursor（Cursor IDE，走日本/台湾）=========
 DOMAIN-SUFFIX,cursor.sh,RouteKit-Cursor
@@ -144,6 +169,10 @@ DOMAIN,vsmarketplacebadge.apphb.com,RouteKit-Dev
 DOMAIN,default.exp-tas.com,RouteKit-Dev
 DOMAIN,webpubsub.azure.com,RouteKit-Dev
 DOMAIN-SUFFIX,azure.com,RouteKit-Dev
+
+# CDN / Cloud
+DOMAIN-SUFFIX,imagedelivery.net,RouteKit-Dev
+DOMAIN-SUFFIX,cloudfront.net,RouteKit-Dev
 
 # ========= 🪙 RouteKit-Crypto-Web3（走日本/新加坡）=========
 DOMAIN-SUFFIX,binance.com,RouteKit-Crypto-Web3
@@ -205,6 +234,21 @@ DOMAIN-SUFFIX,onmicrosoft.com,RouteKit-Proxy
 DOMAIN-SUFFIX,windows.net,RouteKit-Proxy
 DOMAIN-SUFFIX,icloud.com,RouteKit-Proxy
 DOMAIN-SUFFIX,apple-cloudkit.com,RouteKit-Proxy
+
+# ========= 私有 IP / 本地地址直连 =========
+IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+IP-CIDR6,::1/128,DIRECT,no-resolve
+IP-CIDR6,fc00::/7,DIRECT,no-resolve
+IP-CIDR6,fe80::/10,DIRECT,no-resolve
+
+# ========= 中国大陆 IP 直连 =========
+GEOIP,CN,DIRECT
 
 # 兜底
 FINAL,RouteKit-Proxy

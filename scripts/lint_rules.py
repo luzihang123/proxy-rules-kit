@@ -41,7 +41,7 @@ def main() -> int:
                 has_final = True
             # Normalize for duplicates: ignore policy name
             parts = line.split(",")
-            key = ",".join(parts[:2]) if parts[0] in {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "IP-CIDR"} else line
+            key = ",".join(parts[:2]) if parts[0] in {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "IP-CIDR", "IP-CIDR6", "GEOIP"} else line
             if key in seen:
                 print(f"{path}:{idx}: Duplicate rule -> {line}")
                 ok = False
