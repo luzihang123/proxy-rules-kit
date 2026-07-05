@@ -50,6 +50,7 @@ prepend-rules:
   - DOMAIN-SUFFIX,sora.com,🤖 RouteKit-AI
   - DOMAIN-SUFFIX,perplexity.ai,🤖 RouteKit-AI
   - DOMAIN-SUFFIX,manus.im,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,easyclaw.com,🤖 RouteKit-AI
   - DOMAIN-SUFFIX,withgoogle.com,🤖 RouteKit-AI
   - DOMAIN,stitch.withgoogle.com,🤖 RouteKit-AI
   - DOMAIN-SUFFIX,deepmind.google,🤖 RouteKit-AI
@@ -64,6 +65,7 @@ prepend-rules:
   - DOMAIN-SUFFIX,aisandbox-pa.googleapis.com,🤖 RouteKit-AI
   - DOMAIN-SUFFIX,aida.googleapis.com,🤖 RouteKit-AI
   - DOMAIN-SUFFIX,bard.google.com,🤖 RouteKit-AI
+  - DOMAIN-SUFFIX,antigravity.google,🤖 RouteKit-AI
 
   # ========= 📺 RouteKit-YouTube（走香港/日本快速线路）=========
   - DOMAIN-SUFFIX,youtube.com,📺 RouteKit-YouTube
@@ -84,6 +86,7 @@ prepend-rules:
   - DOMAIN-SUFFIX,gstatic.com,🛠 RouteKit-Dev-US
   - DOMAIN-SUFFIX,googletagmanager.com,🛠 RouteKit-Dev-US
   - DOMAIN-SUFFIX,google-analytics.com,🛠 RouteKit-Dev-US
+  - DOMAIN-SUFFIX,googleblog.com,🛠 RouteKit-Dev-US
   - DOMAIN-SUFFIX,goo.gle,🛠 RouteKit-Dev-US
   - DOMAIN-SUFFIX,1e100.net,🛠 RouteKit-Dev-US
   - DOMAIN-SUFFIX,2mdn.net,🛠 RouteKit-Dev-US
@@ -170,7 +173,34 @@ prepend-rules:
   - DOMAIN-SUFFIX,pscdn.co,🎵 RouteKit-Spotify
   - DOMAIN-KEYWORD,spotify,🎵 RouteKit-Spotify
 
+  # ========= 🍎 RouteKit-Apple（苹果服务，香港优先）=========
+  - DOMAIN,apple.com.akadns.net,🍎 RouteKit-Apple
+  - DOMAIN,courier-push-apple.com.akadns.net,🍎 RouteKit-Apple
+  - DOMAIN,push-apple.com.akadns.net,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,apple,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,apple.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,apple.com.cn,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,apple-cloudkit.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,apple-mapkit.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,apple.news,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,appstore.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,cdn-apple.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,icloud.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,icloud.com.cn,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,icloud-content.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,itunes.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,me.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,mzstatic.com,🍎 RouteKit-Apple
+  - DOMAIN-SUFFIX,aaplimg.com,🍎 RouteKit-Apple
+
   # ========= 🪙 Crypto/Web3（走日本/新加坡）=========
+  - DOMAIN-SUFFIX,htx.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,huobi.co,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,huobi.com,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,huobi.me,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,huobi.pro,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,huobi.sc,🪙 RouteKit-Crypto-Web3
+  - DOMAIN-SUFFIX,huobipro.com,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,binance.com,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,binance.me,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,binance.cloud,🪙 RouteKit-Crypto-Web3
@@ -183,13 +213,28 @@ prepend-rules:
   - DOMAIN-SUFFIX,bitget.com,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,aicoin.com,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,geckoterminal.com,🪙 RouteKit-Crypto-Web3
-  - DOMAIN-SUFFIX,futunn.com,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,mytokencap.com,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,aftermath.finance,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,sui.io,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,hashkey.com,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,chainbuzz.xyz,🪙 RouteKit-Crypto-Web3
   - DOMAIN-SUFFIX,chainfeeds.xyz,🪙 RouteKit-Crypto-Web3
+
+  # ========= 📈 Broker（港资券商：香港优先）=========
+  - DOMAIN-SUFFIX,longportapp.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,longbridgeapp.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,longbridge.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,longbridge.global,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,lbkrs.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,lbcdn.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,futunn.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,futubull.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,moomoo.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,futu5.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,itiger.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,tigerbrokers.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,tigertrade.com,📈 RouteKit-Broker
+  - DOMAIN-SUFFIX,tigerfintech.com,📈 RouteKit-Broker
 
   # ========= 🌍 Others =========
   - DOMAIN-SUFFIX,ja3er.com,🌍 RouteKit-Proxy
@@ -212,8 +257,6 @@ prepend-rules:
   - DOMAIN-SUFFIX,sharepoint.com,🌍 RouteKit-Proxy
   - DOMAIN-SUFFIX,onmicrosoft.com,🌍 RouteKit-Proxy
   - DOMAIN-SUFFIX,windows.net,🌍 RouteKit-Proxy
-  - DOMAIN-SUFFIX,icloud.com,🌍 RouteKit-Proxy
-  - DOMAIN-SUFFIX,apple-cloudkit.com,🌍 RouteKit-Proxy
 
 # 兜底规则
 append-rules:
@@ -248,6 +291,10 @@ prepend-proxy-groups:
       - 🇨🇦 加拿大节点
       - 🇩🇪 德国自动
       - 🇩🇪 德国节点
+      - 🇦🇺 澳大利亚自动
+      - 🇦🇺 澳大利亚节点
+      - 🇰🇷 韩国自动
+      - 🇰🇷 韩国节点
       - RouteKit-DIRECT
 
   - name: 🌍 RouteKit-Proxy
@@ -269,6 +316,10 @@ prepend-proxy-groups:
       - 🇨🇦 加拿大节点
       - 🇩🇪 德国自动
       - 🇩🇪 德国节点
+      - 🇦🇺 澳大利亚自动
+      - 🇦🇺 澳大利亚节点
+      - 🇰🇷 韩国自动
+      - 🇰🇷 韩国节点
       - RouteKit-DIRECT
 
   - name: 🛠 RouteKit-Dev-US
@@ -331,6 +382,31 @@ prepend-proxy-groups:
       - 🇺🇲 美国节点
       - RouteKit-DIRECT
 
+  - name: 🍎 RouteKit-Apple
+    type: select
+    proxies:
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - RouteKit-DIRECT
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇬🇧 英国自动
+      - 🇬🇧 英国节点
+      - 🇨🇦 加拿大自动
+      - 🇨🇦 加拿大节点
+      - 🇩🇪 德国自动
+      - 🇩🇪 德国节点
+      - 🇦🇺 澳大利亚自动
+      - 🇦🇺 澳大利亚节点
+      - 🇰🇷 韩国自动
+      - 🇰🇷 韩国节点
+
   - name: 🪙 RouteKit-Crypto-Web3
     type: select
     proxies:
@@ -348,6 +424,30 @@ prepend-proxy-groups:
       - 🇨🇦 加拿大节点
       - 🇩🇪 德国自动
       - 🇩🇪 德国节点
+      - 🇦🇺 澳大利亚自动
+      - 🇦🇺 澳大利亚节点
+      - 🇰🇷 韩国自动
+      - 🇰🇷 韩国节点
+      - RouteKit-DIRECT
+
+
+  - name: 📈 RouteKit-Broker
+    type: select
+    proxies:
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇦🇺 澳大利亚自动
+      - 🇦🇺 澳大利亚节点
+      - 🇰🇷 韩国自动
+      - 🇰🇷 韩国节点
       - RouteKit-DIRECT
 
   # ---------- 地区节点组（自动匹配，不用手写节点名）----------
@@ -357,12 +457,12 @@ prepend-proxy-groups:
     interval: 300
     tolerance: 50
     include-all-proxies: true
-    filter: "(?i)香港|香港HK|香港WAP|家宽|🇭🇰"
+    filter: "(?i)香港|香港HK|香港WAP|HongKong|Hong Kong|\\bHK\\b|🇭🇰"
 
   - name: 🇭🇰 香港节点
     type: select
     include-all-proxies: true
-    filter: "(?i)香港|香港HK|香港WAP|家宽|🇭🇰"
+    filter: "(?i)香港|香港HK|香港WAP|HongKong|Hong Kong|\\bHK\\b|🇭🇰"
 
   - name: 🇹🇼 台湾自动
     type: url-test
@@ -370,17 +470,17 @@ prepend-proxy-groups:
     interval: 300
     tolerance: 50
     include-all-proxies: true
-    filter: "(?i)台湾|家宽|直连 0.5倍率|🇨🇳 台湾|🇹🇼"
+    filter: "(?i)台湾|台北|Taiwan|\\bTW\\b|🇨🇳\\s*台湾|🇹🇼"
 
   - name: 🇹🇼 台湾节点
     type: select
     include-all-proxies: true
-    filter: "(?i)台湾|家宽|直连 0.5倍率|🇨🇳 台湾|🇹🇼"
+    filter: "(?i)台湾|台北|Taiwan|\\bTW\\b|🇨🇳\\s*台湾|🇹🇼"
 
   - name: 🇺🇲 美国节点
     type: select
     include-all-proxies: true
-    filter: "(?i)美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|家宽|直连 0.5倍率|🇺🇸|🇺🇲"
+    filter: "(?i)美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|United States|USA|\\bUS\\b|🇺🇸|🇺🇲"
 
   - name: 🇺🇲 美国自动
     type: url-test
@@ -388,12 +488,12 @@ prepend-proxy-groups:
     interval: 300
     tolerance: 50
     include-all-proxies: true
-    filter: "(?i)美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|家宽|直连 0.5倍率|🇺🇸|🇺🇲"
+    filter: "(?i)美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|United States|USA|\\bUS\\b|🇺🇸|🇺🇲"
 
   - name: 🇸🇬 新加坡节点
     type: select
     include-all-proxies: true
-    filter: "(?i)新加坡|海外用户专用-新加坡|直连 0.5倍率|🇸🇬"
+    filter: "(?i)新加坡|海外用户专用-新加坡|Singapore|\\bSG\\b|🇸🇬"
 
   - name: 🇸🇬 新加坡自动
     type: url-test
@@ -401,12 +501,12 @@ prepend-proxy-groups:
     interval: 300
     tolerance: 50
     include-all-proxies: true
-    filter: "(?i)新加坡|海外用户专用-新加坡|直连 0.5倍率|🇸🇬"
+    filter: "(?i)新加坡|海外用户专用-新加坡|Singapore|\\bSG\\b|🇸🇬"
 
   - name: 🇯🇵 日本节点
     type: select
     include-all-proxies: true
-    filter: "(?i)日本|日本JP|海外用户专用-日本|直连 0.5倍率|🇯🇵"
+    filter: "(?i)日本|日本JP|东京|海外用户专用-日本|Japan|\\bJP\\b|🇯🇵"
 
   - name: 🇯🇵 日本自动
     type: url-test
@@ -414,12 +514,12 @@ prepend-proxy-groups:
     interval: 300
     tolerance: 50
     include-all-proxies: true
-    filter: "(?i)日本|日本JP|海外用户专用-日本|直连 0.5倍率|🇯🇵"
+    filter: "(?i)日本|日本JP|东京|海外用户专用-日本|Japan|\\bJP\\b|🇯🇵"
 
   - name: 🇬🇧 英国节点
     type: select
     include-all-proxies: true
-    filter: "(?i)英国|家宽|🇬🇧"
+    filter: "(?i)英国|United Kingdom|\\bUK\\b|🇬🇧"
 
   - name: 🇬🇧 英国自动
     type: url-test
@@ -427,12 +527,12 @@ prepend-proxy-groups:
     interval: 300
     tolerance: 50
     include-all-proxies: true
-    filter: "(?i)英国|家宽|🇬🇧"
+    filter: "(?i)英国|United Kingdom|\\bUK\\b|🇬🇧"
 
   - name: 🇨🇦 加拿大节点
     type: select
     include-all-proxies: true
-    filter: "(?i)加拿大|🇨🇦"
+    filter: "(?i)加拿大|Canada|\\bCA\\b|🇨🇦"
 
   - name: 🇨🇦 加拿大自动
     type: url-test
@@ -440,12 +540,12 @@ prepend-proxy-groups:
     interval: 300
     tolerance: 50
     include-all-proxies: true
-    filter: "(?i)加拿大|🇨🇦"
+    filter: "(?i)加拿大|Canada|\\bCA\\b|🇨🇦"
 
   - name: 🇩🇪 德国节点
     type: select
     include-all-proxies: true
-    filter: "(?i)德国|德国DE|🇩🇪"
+    filter: "(?i)德国|德国DE|Germany|\\bDE\\b|🇩🇪"
 
   - name: 🇩🇪 德国自动
     type: url-test
@@ -453,4 +553,30 @@ prepend-proxy-groups:
     interval: 300
     tolerance: 50
     include-all-proxies: true
-    filter: "(?i)德国|德国DE|🇩🇪"
+    filter: "(?i)德国|德国DE|Germany|\\bDE\\b|🇩🇪"
+
+  - name: 🇦🇺 澳大利亚节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)澳大利亚|澳洲|Australia|\\bAU\\b|🇦🇺"
+
+  - name: 🇦🇺 澳大利亚自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)澳大利亚|澳洲|Australia|\\bAU\\b|🇦🇺"
+
+  - name: 🇰🇷 韩国节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)韩国|南韩|Korea|South Korea|\\bKR\\b|🇰🇷"
+
+  - name: 🇰🇷 韩国自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)韩国|南韩|Korea|South Korea|\\bKR\\b|🇰🇷"

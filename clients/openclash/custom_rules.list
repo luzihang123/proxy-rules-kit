@@ -56,6 +56,7 @@ DOMAIN-SUFFIX,geller-pa.googleapis.com,🤖 RouteKit-Gemini
 DOMAIN-SUFFIX,aisandbox-pa.googleapis.com,🤖 RouteKit-Gemini
 DOMAIN-SUFFIX,aida.googleapis.com,🤖 RouteKit-Gemini
 DOMAIN-SUFFIX,bard.google.com,🤖 RouteKit-Gemini
+DOMAIN-SUFFIX,antigravity.google,🤖 RouteKit-Gemini
 
 # ───── Grok / xAI ─────
 DOMAIN-KEYWORD,grok,🤖 RouteKit-Grok
@@ -67,8 +68,9 @@ DOMAIN-SUFFIX,dify.ai,🤖 RouteKit-AI
 DOMAIN-SUFFIX,ollama.ai,🤖 RouteKit-AI
 DOMAIN-SUFFIX,perplexity.ai,🤖 RouteKit-AI
 DOMAIN-SUFFIX,manus.im,🤖 RouteKit-AI
-DOMAIN-SUFFIX,withgoogle.com,🤖 RouteKit-AI
-DOMAIN,stitch.withgoogle.com,🤖 RouteKit-AI
+DOMAIN-SUFFIX,easyclaw.com,🤖 RouteKit-AI
+DOMAIN-SUFFIX,withgoogle.com,🤖 RouteKit-Gemini
+DOMAIN,stitch.withgoogle.com,🤖 RouteKit-Gemini
 
 # ───── 企业/内网直连（必须配合 custom_overwrite.yaml 的 fake-ip-filter）─────
 
@@ -86,6 +88,26 @@ DOMAIN-SUFFIX,spotify.design,🎵 RouteKit-Spotify
 DOMAIN-SUFFIX,spotilocal.com,🎵 RouteKit-Spotify
 DOMAIN-SUFFIX,tospotify.com,🎵 RouteKit-Spotify
 DOMAIN-SUFFIX,pscdn.co,🎵 RouteKit-Spotify
+
+# ───── Apple / iCloud / App Store（香港优先）─────
+DOMAIN,apple.com.akadns.net,🍎 RouteKit-Apple
+DOMAIN,courier-push-apple.com.akadns.net,🍎 RouteKit-Apple
+DOMAIN,push-apple.com.akadns.net,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,apple,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,apple.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,apple.com.cn,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,apple-cloudkit.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,apple-mapkit.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,apple.news,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,appstore.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,cdn-apple.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,icloud.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,icloud.com.cn,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,icloud-content.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,itunes.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,me.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,mzstatic.com,🍎 RouteKit-Apple
+DOMAIN-SUFFIX,aaplimg.com,🍎 RouteKit-Apple
 
 # ───── YouTube ─────
 DOMAIN,www.youtube.com,📺 RouteKit-YouTube
@@ -106,6 +128,7 @@ DOMAIN-SUFFIX,googleapis.com,🛠 RouteKit-Dev-US
 DOMAIN-SUFFIX,gstatic.com,🛠 RouteKit-Dev-US
 DOMAIN-SUFFIX,googletagmanager.com,🛠 RouteKit-Dev-US
 DOMAIN-SUFFIX,google-analytics.com,🛠 RouteKit-Dev-US
+DOMAIN-SUFFIX,googleblog.com,🛠 RouteKit-Dev-US
 DOMAIN-SUFFIX,goo.gle,🛠 RouteKit-Dev-US
 DOMAIN-SUFFIX,1e100.net,🛠 RouteKit-Dev-US
 DOMAIN-SUFFIX,2mdn.net,🛠 RouteKit-Dev-US
@@ -193,6 +216,13 @@ DOMAIN-SUFFIX,twitteroauth.com,🐦 RouteKit-Twitter
 DOMAIN-SUFFIX,tweetdeck.com,🐦 RouteKit-Twitter
 
 # ───── Crypto / Web3 ─────
+DOMAIN-SUFFIX,htx.com,🪙 RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.co,🪙 RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.com,🪙 RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.me,🪙 RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.pro,🪙 RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.sc,🪙 RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobipro.com,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,binance.com,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,binance.me,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,binance.cloud,🪙 RouteKit-Crypto-Web3
@@ -205,13 +235,28 @@ DOMAIN-SUFFIX,bybit.com,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,bitget.com,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,aicoin.com,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,geckoterminal.com,🪙 RouteKit-Crypto-Web3
-DOMAIN-SUFFIX,futunn.com,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,mytokencap.com,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,aftermath.finance,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,sui.io,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,hashkey.com,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,chainbuzz.xyz,🪙 RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,chainfeeds.xyz,🪙 RouteKit-Crypto-Web3
+
+# ───── Broker / 港资券商 ─────
+DOMAIN-SUFFIX,longportapp.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,longbridgeapp.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,longbridge.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,longbridge.global,📈 RouteKit-Broker
+DOMAIN-SUFFIX,lbkrs.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,lbcdn.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,futunn.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,futubull.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,moomoo.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,futu5.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,itiger.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,tigerbrokers.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,tigertrade.com,📈 RouteKit-Broker
+DOMAIN-SUFFIX,tigerfintech.com,📈 RouteKit-Broker
 
 # ───── Others（通用代理走 RouteKit-Proxy）─────
 DOMAIN-SUFFIX,telegram.org,🌍 RouteKit-Proxy
@@ -222,5 +267,3 @@ DOMAIN-SUFFIX,office365.com,🌍 RouteKit-Proxy
 DOMAIN-SUFFIX,sharepoint.com,🌍 RouteKit-Proxy
 DOMAIN-SUFFIX,onmicrosoft.com,🌍 RouteKit-Proxy
 DOMAIN-SUFFIX,windows.net,🌍 RouteKit-Proxy
-DOMAIN-SUFFIX,icloud.com,🌍 RouteKit-Proxy
-DOMAIN-SUFFIX,apple-cloudkit.com,🌍 RouteKit-Proxy

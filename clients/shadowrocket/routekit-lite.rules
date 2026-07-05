@@ -48,6 +48,7 @@ DOMAIN-SUFFIX,geller-pa.googleapis.com,RouteKit-Gemini
 DOMAIN-SUFFIX,aisandbox-pa.googleapis.com,RouteKit-Gemini
 DOMAIN-SUFFIX,aida.googleapis.com,RouteKit-Gemini
 DOMAIN-SUFFIX,bard.google.com,RouteKit-Gemini
+DOMAIN-SUFFIX,antigravity.google,RouteKit-Gemini
 
 # ========= 🤖 RouteKit-Grok（xAI 系）=========
 DOMAIN-KEYWORD,grok,RouteKit-Grok
@@ -59,8 +60,9 @@ DOMAIN-SUFFIX,dify.ai,RouteKit-AI
 DOMAIN-SUFFIX,ollama.ai,RouteKit-AI
 DOMAIN-SUFFIX,perplexity.ai,RouteKit-AI
 DOMAIN-SUFFIX,manus.im,RouteKit-AI
-DOMAIN-SUFFIX,withgoogle.com,RouteKit-AI
-DOMAIN,stitch.withgoogle.com,RouteKit-AI
+DOMAIN-SUFFIX,easyclaw.com,RouteKit-AI
+DOMAIN-SUFFIX,withgoogle.com,RouteKit-Gemini
+DOMAIN,stitch.withgoogle.com,RouteKit-Gemini
 
 # ========= 🏢 企业/内网直连 =========
 # Shadowrocket 工作在 iOS VPN/TUN 层，所有流量都经过它。
@@ -76,6 +78,26 @@ DOMAIN-SUFFIX,spotify.design,RouteKit-Spotify
 DOMAIN-SUFFIX,spotilocal.com,RouteKit-Spotify
 DOMAIN-SUFFIX,tospotify.com,RouteKit-Spotify
 DOMAIN-SUFFIX,pscdn.co,RouteKit-Spotify
+
+# ========= 🍎 RouteKit-Apple（苹果服务，香港优先）=========
+DOMAIN,apple.com.akadns.net,RouteKit-Apple
+DOMAIN,courier-push-apple.com.akadns.net,RouteKit-Apple
+DOMAIN,push-apple.com.akadns.net,RouteKit-Apple
+DOMAIN-SUFFIX,apple,RouteKit-Apple
+DOMAIN-SUFFIX,apple.com,RouteKit-Apple
+DOMAIN-SUFFIX,apple.com.cn,RouteKit-Apple
+DOMAIN-SUFFIX,apple-cloudkit.com,RouteKit-Apple
+DOMAIN-SUFFIX,apple-mapkit.com,RouteKit-Apple
+DOMAIN-SUFFIX,apple.news,RouteKit-Apple
+DOMAIN-SUFFIX,appstore.com,RouteKit-Apple
+DOMAIN-SUFFIX,cdn-apple.com,RouteKit-Apple
+DOMAIN-SUFFIX,icloud.com,RouteKit-Apple
+DOMAIN-SUFFIX,icloud.com.cn,RouteKit-Apple
+DOMAIN-SUFFIX,icloud-content.com,RouteKit-Apple
+DOMAIN-SUFFIX,itunes.com,RouteKit-Apple
+DOMAIN-SUFFIX,me.com,RouteKit-Apple
+DOMAIN-SUFFIX,mzstatic.com,RouteKit-Apple
+DOMAIN-SUFFIX,aaplimg.com,RouteKit-Apple
 
 # ========= 📺 RouteKit-YouTube（走香港/日本快速线路）=========
 DOMAIN,www.youtube.com,RouteKit-YouTube
@@ -96,6 +118,7 @@ DOMAIN-SUFFIX,googleapis.com,RouteKit-Dev-US
 DOMAIN-SUFFIX,gstatic.com,RouteKit-Dev-US
 DOMAIN-SUFFIX,googletagmanager.com,RouteKit-Dev-US
 DOMAIN-SUFFIX,google-analytics.com,RouteKit-Dev-US
+DOMAIN-SUFFIX,googleblog.com,RouteKit-Dev-US
 DOMAIN-SUFFIX,goo.gle,RouteKit-Dev-US
 DOMAIN-SUFFIX,1e100.net,RouteKit-Dev-US
 DOMAIN-SUFFIX,2mdn.net,RouteKit-Dev-US
@@ -175,6 +198,13 @@ DOMAIN-SUFFIX,imagedelivery.net,RouteKit-Dev
 DOMAIN-SUFFIX,cloudfront.net,RouteKit-Dev
 
 # ========= 🪙 RouteKit-Crypto-Web3（走日本/新加坡）=========
+DOMAIN-SUFFIX,htx.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.co,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.com,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.me,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.pro,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobi.sc,RouteKit-Crypto-Web3
+DOMAIN-SUFFIX,huobipro.com,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,binance.com,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,binance.me,RouteKit-Crypto-Web3
 DOMAIN-SUFFIX,binance.cloud,RouteKit-Crypto-Web3
@@ -223,7 +253,7 @@ DOMAIN-SUFFIX,twitteroauth.com,RouteKit-Twitter
 DOMAIN-SUFFIX,tweetdeck.com,RouteKit-Twitter
 
 # ========= 🌍 RouteKit-Proxy（通用代理）=========
-# Messaging / Microsoft / Apple
+# Messaging / Microsoft
 DOMAIN-SUFFIX,telegram.org,RouteKit-Proxy
 DOMAIN-SUFFIX,microsoft.com,RouteKit-Proxy
 DOMAIN-SUFFIX,live.com,RouteKit-Proxy
@@ -232,8 +262,6 @@ DOMAIN-SUFFIX,office365.com,RouteKit-Proxy
 DOMAIN-SUFFIX,sharepoint.com,RouteKit-Proxy
 DOMAIN-SUFFIX,onmicrosoft.com,RouteKit-Proxy
 DOMAIN-SUFFIX,windows.net,RouteKit-Proxy
-DOMAIN-SUFFIX,icloud.com,RouteKit-Proxy
-DOMAIN-SUFFIX,apple-cloudkit.com,RouteKit-Proxy
 
 # ========= 私有 IP / 本地地址直连 =========
 IP-CIDR,192.168.0.0/16,DIRECT,no-resolve

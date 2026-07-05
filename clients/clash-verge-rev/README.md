@@ -27,6 +27,7 @@
 | `🤖 RouteKit-AI` | 美国优先 | 其他通用 AI 工具（Perplexity、Dify 等） |
 | `📺 RouteKit-YouTube` | 日本/新加坡 | 速度优先，近区 CDN 更快 |
 | `🎵 RouteKit-Spotify` | 新加坡固定 | 账号注册地为新加坡，切区会触发风控 |
+| `🍎 RouteKit-Apple` | **香港优先** | Apple / iCloud / App Store，可手动切 RouteKit-DIRECT / 日本 |
 | `🛠 RouteKit-Dev-US` | 美国专用 | 需要美国出口的特定开发场景 |
 | `🔧 RouteKit-Dev` | 日本/新加坡 | GitHub、Docker、PyPI 等开发工具 |
 | `🖥 RouteKit-Cursor` | 日本/台湾 | IDE 补全对延迟敏感，近区优先 |

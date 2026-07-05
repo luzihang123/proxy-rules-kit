@@ -183,6 +183,22 @@ proxy-groups:
       - 🇭🇰 香港节点
       - RouteKit-DIRECT
 
+  # Apple / iCloud / App Store（香港优先，可手动直连/日本）
+  - name: 🍎 RouteKit-Apple
+    type: select
+    proxies:
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - RouteKit-DIRECT
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+
   # Google 服务（搜索/Gmail/Drive 等）
   - name: 🛠 RouteKit-Dev-US
     type: select
@@ -243,6 +259,26 @@ proxy-groups:
       - 🇭🇰 香港节点
       - 🇹🇼 台湾自动
       - 🇹🇼 台湾节点
+      - RouteKit-DIRECT
+
+
+  - name: 📈 RouteKit-Broker
+    type: select
+    proxies:
+      - 🇭🇰 香港自动
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本自动
+      - 🇯🇵 日本节点
+      - 🇹🇼 台湾自动
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡自动
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国自动
+      - 🇺🇲 美国节点
+      - 🇦🇺 澳大利亚自动
+      - 🇦🇺 澳大利亚节点
+      - 🇰🇷 韩国自动
+      - 🇰🇷 韩国节点
       - RouteKit-DIRECT
 
   # Twitter / X
@@ -349,6 +385,23 @@ proxy-groups:
     include-all-proxies: true
     filter: "(?i)德国|德国DE|Germany|DE|🇩🇪"
 
+
+  - name: 🇦🇺 澳大利亚自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)澳大利亚|澳洲|Australia|AU|🇦🇺"
+
+  - name: 🇰🇷 韩国自动
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all-proxies: true
+    filter: "(?i)韩国|南韩|Korea|South Korea|KR|🇰🇷"
+
   - name: 🇳🇬 尼日利亚自动
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -398,6 +451,17 @@ proxy-groups:
     type: select
     include-all-proxies: true
     filter: "(?i)德国|德国DE|Germany|DE|🇩🇪"
+
+
+  - name: 🇦🇺 澳大利亚节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)澳大利亚|澳洲|Australia|AU|🇦🇺"
+
+  - name: 🇰🇷 韩国节点
+    type: select
+    include-all-proxies: true
+    filter: "(?i)韩国|南韩|Korea|South Korea|KR|🇰🇷"
 
   - name: 🇳🇬 尼日利亚节点
     type: select

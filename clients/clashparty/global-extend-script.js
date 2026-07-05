@@ -12,14 +12,16 @@
 
 // 地区节点过滤正则
 const REGION_FILTERS = {
-  "🇭🇰 香港节点": /香港|香港HK|香港WAP|🇭🇰/i,
-  "🇹🇼 台湾节点": /台湾|🇨🇳\s*台湾|🇹🇼/i,
-  "🇺🇲 美国节点": /美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|🇺🇸|🇺🇲/i,
-  "🇸🇬 新加坡节点": /新加坡|海外用户专用-新加坡|🇸🇬/i,
-  "🇯🇵 日本节点": /日本|日本JP|海外用户专用-日本|🇯🇵/i,
-  "🇬🇧 英国节点": /英国|🇬🇧/i,
-  "🇨🇦 加拿大节点": /加拿大|🇨🇦/i,
-  "🇩🇪 德国节点": /德国|德国DE|🇩🇪/i,
+  "🇭🇰 香港节点": /香港|香港HK|香港WAP|HongKong|Hong Kong|\bHK\b|🇭🇰/i,
+  "🇹🇼 台湾节点": /台湾|台北|Taiwan|\bTW\b|🇨🇳\s*台湾|🇹🇼/i,
+  "🇺🇲 美国节点": /美国|美国LA|美国USLA|洛杉矶|海外用户专用-美国|United States|USA|\bUS\b|🇺🇸|🇺🇲/i,
+  "🇸🇬 新加坡节点": /新加坡|海外用户专用-新加坡|Singapore|\bSG\b|🇸🇬/i,
+  "🇯🇵 日本节点": /日本|日本JP|东京|海外用户专用-日本|Japan|\bJP\b|🇯🇵/i,
+  "🇬🇧 英国节点": /英国|United Kingdom|\bUK\b|🇬🇧/i,
+  "🇨🇦 加拿大节点": /加拿大|Canada|\bCA\b|🇨🇦/i,
+  "🇩🇪 德国节点": /德国|德国DE|Germany|\bDE\b|🇩🇪/i,
+  "🇦🇺 澳大利亚节点": /澳大利亚|澳洲|Australia|\bAU\b|🇦🇺/i,
+  "🇰🇷 韩国节点": /韩国|南韩|Korea|South Korea|\bKR\b|🇰🇷/i,
 };
 
 const CUSTOM_GROUP_NAMES = new Set([
@@ -32,7 +34,9 @@ const CUSTOM_GROUP_NAMES = new Set([
   "📺 RouteKit-YouTube",
   "🔧 RouteKit-Dev",
   "🎵 RouteKit-Spotify",
+  "🍎 RouteKit-Apple",
   "🪙 RouteKit-Crypto-Web3",
+  "📈 RouteKit-Broker",
   ...Object.keys(REGION_FILTERS),
 ]);
 
@@ -76,6 +80,7 @@ const CUSTOM_RULES = [
   "DOMAIN-SUFFIX,sora.com,🤖 RouteKit-ChatGPT",
   "DOMAIN-SUFFIX,perplexity.ai,🤖 RouteKit-AI",
   "DOMAIN-SUFFIX,manus.im,🤖 RouteKit-AI",
+  "DOMAIN-SUFFIX,easyclaw.com,🤖 RouteKit-AI",
   "DOMAIN-SUFFIX,deepmind.google,🤖 RouteKit-AI",
   "DOMAIN-SUFFIX,deepmind.com,🤖 RouteKit-AI",
   "DOMAIN-SUFFIX,labs.google,🤖 RouteKit-AI",
@@ -88,6 +93,9 @@ const CUSTOM_RULES = [
   "DOMAIN-SUFFIX,aisandbox-pa.googleapis.com,🤖 RouteKit-AI",
   "DOMAIN-SUFFIX,aida.googleapis.com,🤖 RouteKit-AI",
   "DOMAIN-SUFFIX,bard.google.com,🤖 RouteKit-AI",
+  "DOMAIN-SUFFIX,antigravity.google,🤖 RouteKit-AI",
+  "DOMAIN-SUFFIX,withgoogle.com,🤖 RouteKit-AI",
+  "DOMAIN,stitch.withgoogle.com,🤖 RouteKit-AI",
 
   // YouTube（走香港/日本快速线路）
   "DOMAIN-SUFFIX,youtube.com,📺 RouteKit-YouTube",
@@ -111,7 +119,34 @@ const CUSTOM_RULES = [
   "DOMAIN-SUFFIX,pscdn.co,🎵 RouteKit-Spotify",
   "DOMAIN-KEYWORD,spotify,🎵 RouteKit-Spotify",
 
+  // Apple 服务（香港优先，可手动切换 DIRECT / 日本等）
+  "DOMAIN,apple.com.akadns.net,🍎 RouteKit-Apple",
+  "DOMAIN,courier-push-apple.com.akadns.net,🍎 RouteKit-Apple",
+  "DOMAIN,push-apple.com.akadns.net,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,apple,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,apple.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,apple.com.cn,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,apple-cloudkit.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,apple-mapkit.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,apple.news,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,appstore.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,cdn-apple.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,icloud.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,icloud.com.cn,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,icloud-content.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,itunes.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,me.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,mzstatic.com,🍎 RouteKit-Apple",
+  "DOMAIN-SUFFIX,aaplimg.com,🍎 RouteKit-Apple",
+
   // Crypto/Web3（走日本/新加坡）
+  "DOMAIN-SUFFIX,htx.com,🪙 RouteKit-Crypto-Web3",
+  "DOMAIN-SUFFIX,huobi.co,🪙 RouteKit-Crypto-Web3",
+  "DOMAIN-SUFFIX,huobi.com,🪙 RouteKit-Crypto-Web3",
+  "DOMAIN-SUFFIX,huobi.me,🪙 RouteKit-Crypto-Web3",
+  "DOMAIN-SUFFIX,huobi.pro,🪙 RouteKit-Crypto-Web3",
+  "DOMAIN-SUFFIX,huobi.sc,🪙 RouteKit-Crypto-Web3",
+  "DOMAIN-SUFFIX,huobipro.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,binance.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,binance.me,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,binance.cloud,🪙 RouteKit-Crypto-Web3",
@@ -124,13 +159,28 @@ const CUSTOM_RULES = [
   "DOMAIN-SUFFIX,bitget.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,aicoin.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,geckoterminal.com,🪙 RouteKit-Crypto-Web3",
-  "DOMAIN-SUFFIX,futunn.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,mytokencap.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,aftermath.finance,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,sui.io,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,hashkey.com,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,chainbuzz.xyz,🪙 RouteKit-Crypto-Web3",
   "DOMAIN-SUFFIX,chainfeeds.xyz,🪙 RouteKit-Crypto-Web3",
+
+  // Broker（港资券商：香港优先）
+  "DOMAIN-SUFFIX,longportapp.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,longbridgeapp.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,longbridge.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,longbridge.global,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,lbkrs.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,lbcdn.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,futunn.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,futubull.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,moomoo.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,futu5.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,itiger.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,tigerbrokers.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,tigertrade.com,📈 RouteKit-Broker",
+  "DOMAIN-SUFFIX,tigerfintech.com,📈 RouteKit-Broker",
 
   // Google（走美国）
   "DOMAIN-SUFFIX,google.com,🛠 RouteKit-Dev-US",
@@ -139,6 +189,7 @@ const CUSTOM_RULES = [
   "DOMAIN-SUFFIX,gstatic.com,🛠 RouteKit-Dev-US",
   "DOMAIN-SUFFIX,googletagmanager.com,🛠 RouteKit-Dev-US",
   "DOMAIN-SUFFIX,google-analytics.com,🛠 RouteKit-Dev-US",
+  "DOMAIN-SUFFIX,googleblog.com,🛠 RouteKit-Dev-US",
   "DOMAIN-SUFFIX,goo.gle,🛠 RouteKit-Dev-US",
   "DOMAIN-SUFFIX,1e100.net,🛠 RouteKit-Dev-US",
   "DOMAIN-SUFFIX,2mdn.net,🛠 RouteKit-Dev-US",
@@ -219,8 +270,6 @@ const CUSTOM_RULES = [
   "DOMAIN-SUFFIX,sharepoint.com,🌍 RouteKit-Proxy",
   "DOMAIN-SUFFIX,onmicrosoft.com,🌍 RouteKit-Proxy",
   "DOMAIN-SUFFIX,windows.net,🌍 RouteKit-Proxy",
-  "DOMAIN-SUFFIX,icloud.com,🌍 RouteKit-Proxy",
-  "DOMAIN-SUFFIX,apple-cloudkit.com,🌍 RouteKit-Proxy",
 ];
 
 function main(config, profileName) {
@@ -356,12 +405,50 @@ function main(config, profileName) {
       ],
     },
     {
+      name: "🍎 RouteKit-Apple",
+      type: "select",
+      proxies: [
+        ...regionNames.filter((n) => n.includes("香港")),
+        "RouteKit-DIRECT",
+        ...regionNames.filter((n) => n.includes("日本")),
+        ...regionNames.filter((n) => n.includes("新加坡") || n.includes("台湾")),
+        ...regionNames.filter((n) => n.includes("美国")),
+        ...regionNames.filter(
+          (n) =>
+            !n.includes("香港") &&
+            !n.includes("日本") &&
+            !n.includes("新加坡") &&
+            !n.includes("台湾") &&
+            !n.includes("美国")
+        ),
+      ],
+    },
+    {
       name: "🪙 RouteKit-Crypto-Web3",
       type: "select",
       proxies: [
         ...regionNames.filter((n) => n.includes("日本") || n.includes("新加坡")),
         ...regionNames.filter(
           (n) => !n.includes("日本") && !n.includes("新加坡")
+        ),
+        "RouteKit-DIRECT",
+      ],
+    },
+    {
+      name: "📈 RouteKit-Broker",
+      type: "select",
+      proxies: [
+        ...regionNames.filter((n) => n.includes("香港")),
+        ...regionNames.filter((n) => n.includes("日本")),
+        ...regionNames.filter((n) => n.includes("台湾")),
+        ...regionNames.filter((n) => n.includes("新加坡")),
+        ...regionNames.filter((n) => n.includes("美国")),
+        ...regionNames.filter((n) => n.includes("澳大利亚") || n.includes("韩国")),
+        ...regionNames.filter(
+          (n) =>
+            !["香港", "日本", "台湾", "新加坡", "美国", "澳大利亚", "韩国"].some((k) =>
+              n.includes(k)
+            )
         ),
         "RouteKit-DIRECT",
       ],

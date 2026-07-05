@@ -43,6 +43,7 @@
 | `RouteKit-AI` | 通用 AI 工具（Perplexity / Dify 等） | 美国 / 日本 / 新加坡混合池，按服务可达性和稳定性选择 |
 | `RouteKit-YouTube` | YouTube 视频 / 音频 | 香港 / 日本优先，以吞吐和时延体验为导向 |
 | `RouteKit-Spotify` | Spotify 音乐服务 | 按账号注册地固定地区，例如新加坡，减少跨区异常 |
+| `RouteKit-Apple` | Apple / iCloud / App Store | 香港优先，可手动切 DIRECT / 日本 / 新加坡 |
 | `RouteKit-Dev-US` | Google 与部分开发基础服务 | 美国固定出口，避免地区差异导致服务不一致 |
 | `RouteKit-Cursor` | Cursor IDE 相关域名 | 日本 / 台湾 / 新加坡优先，兼顾低时延与连通性 |
 | `RouteKit-Dev` | GitHub / Docker / PyPI 等开发工具链 | 日本 / 新加坡优先，强调开发下载与 API 稳定性 |
@@ -88,6 +89,18 @@ https://raw.githubusercontent.com/luzihang123/proxy-rules-kit/main/clients/shado
 
 如果某些分组没有匹配到节点，编辑 `routekit.conf` 里的 `policy-regex-filter`，按你的节点名称补充地区关键词。
 
+Shadowrocket 远程规则订阅 URL：
+
+```text
+https://raw.githubusercontent.com/luzihang123/proxy-rules-kit/main/clients/shadowrocket/routekit.rules
+```
+
+精简规则订阅 URL：
+
+```text
+https://raw.githubusercontent.com/luzihang123/proxy-rules-kit/main/clients/shadowrocket/routekit-lite.rules
+```
+
 ## 重要安全约定
 
 不要提交真实订阅 URL、token、内网 IP、公司域名、家庭成员名称、机场后台地址。公开仓库只保留模板和示例值。
@@ -100,5 +113,5 @@ rules/          # 跨客户端共享规则原始列表
 examples/       # 示例输入与占位配置
 subscriptions/  # 订阅模板，真实文件本地忽略
 scripts/        # lint、同步、敏感字段扫描
-docs/           # 使用说明与维护方法
+docs/           # 使用说明与维护方法，中文教程见 docs/中文教程/项目技术与语法教学.md
 ```
