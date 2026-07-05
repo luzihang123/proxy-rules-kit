@@ -22,10 +22,14 @@ parsers:
         - DOMAIN,generativelanguage.googleapis.com,🤖 RouteKit-AI
         - DOMAIN,gemini.google.com,🤖 RouteKit-AI
         - DOMAIN,aistudio.google.com,🤖 RouteKit-AI
+        - DOMAIN-SUFFIX,antigravity.google,🤖 RouteKit-AI
+        - DOMAIN-SUFFIX,withgoogle.com,🤖 RouteKit-AI
+        - DOMAIN,stitch.withgoogle.com,🤖 RouteKit-AI
         - DOMAIN-SUFFIX,dify.ai,🤖 RouteKit-AI
         - DOMAIN-SUFFIX,ollama.ai,🤖 RouteKit-AI
         - DOMAIN-SUFFIX,perplexity.ai,🤖 RouteKit-AI
         - DOMAIN-SUFFIX,manus.im,🤖 RouteKit-AI
+        - DOMAIN-SUFFIX,easyclaw.com,🤖 RouteKit-AI
         - DOMAIN-SUFFIX,youtube.com,📺 RouteKit-YouTube
         - DOMAIN-SUFFIX,youtu.be,📺 RouteKit-YouTube
         - DOMAIN-SUFFIX,ytimg.com,📺 RouteKit-YouTube
@@ -50,6 +54,7 @@ parsers:
         - DOMAIN-SUFFIX,gstatic.com,🛠 RouteKit-Dev-US
         - DOMAIN-SUFFIX,googletagmanager.com,🛠 RouteKit-Dev-US
         - DOMAIN-SUFFIX,google-analytics.com,🛠 RouteKit-Dev-US
+        - DOMAIN-SUFFIX,googleblog.com,🛠 RouteKit-Dev-US
         - DOMAIN-SUFFIX,goo.gle,🛠 RouteKit-Dev-US
         - DOMAIN-SUFFIX,1e100.net,🛠 RouteKit-Dev-US
         - DOMAIN-SUFFIX,2mdn.net,🛠 RouteKit-Dev-US
@@ -128,12 +133,26 @@ parsers:
         - DOMAIN-SUFFIX,hashkey.com,🪙 RouteKit-Crypto-Web3
         - DOMAIN-SUFFIX,aicoin.com,🪙 RouteKit-Crypto-Web3
         - DOMAIN-SUFFIX,geckoterminal.com,🪙 RouteKit-Crypto-Web3
-        - DOMAIN-SUFFIX,futunn.com,🪙 RouteKit-Crypto-Web3
         - DOMAIN-SUFFIX,mytokencap.com,🪙 RouteKit-Crypto-Web3
         - DOMAIN-SUFFIX,aftermath.finance,🪙 RouteKit-Crypto-Web3
         - DOMAIN-SUFFIX,sui.io,🪙 RouteKit-Crypto-Web3
         - DOMAIN-SUFFIX,chainbuzz.xyz,🪙 RouteKit-Crypto-Web3
         - DOMAIN-SUFFIX,chainfeeds.xyz,🪙 RouteKit-Crypto-Web3
+
+        - DOMAIN-SUFFIX,longportapp.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,longbridgeapp.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,longbridge.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,longbridge.global,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,lbkrs.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,lbcdn.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,futunn.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,futubull.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,moomoo.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,futu5.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,itiger.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,tigerbrokers.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,tigertrade.com,📈 RouteKit-Broker
+        - DOMAIN-SUFFIX,tigerfintech.com,📈 RouteKit-Broker
         - DOMAIN-SUFFIX,corp.example.com,RouteKit-DIRECT
         - DOMAIN-SUFFIX,internal.example.test,RouteKit-DIRECT
       append-rules:
@@ -144,7 +163,7 @@ parsers:
           proxies: [DIRECT]
         - name: 🤖 RouteKit-AI
           type: select
-          proxies: [<US_GROUP>, <JP_GROUP>, <SG_GROUP>, <FALLBACK_GROUP>, RouteKit-DIRECT]
+          proxies: [<US_GROUP>, <JP_GROUP>, <SG_GROUP>, <TW_GROUP>, <HK_GROUP>, <AU_GROUP>, <KR_GROUP>, <FALLBACK_GROUP>, RouteKit-DIRECT]
         - name: 📺 RouteKit-YouTube
           type: select
           proxies: [<HK_GROUP>, <JP_GROUP>, <FALLBACK_GROUP>, RouteKit-DIRECT]
@@ -156,10 +175,13 @@ parsers:
           proxies: [<US_GROUP>, <FALLBACK_GROUP>, RouteKit-DIRECT]
         - name: 🔧 RouteKit-Dev
           type: select
-          proxies: [<JP_GROUP>, <SG_GROUP>, <FALLBACK_GROUP>, RouteKit-DIRECT]
+          proxies: [<JP_GROUP>, <SG_GROUP>, <HK_GROUP>, <TW_GROUP>, <AU_GROUP>, <KR_GROUP>, <FALLBACK_GROUP>, RouteKit-DIRECT]
         - name: 🪙 RouteKit-Crypto-Web3
           type: select
-          proxies: [<JP_GROUP>, <SG_GROUP>, <FALLBACK_GROUP>, RouteKit-DIRECT]
+          proxies: [<JP_GROUP>, <SG_GROUP>, <HK_GROUP>, <TW_GROUP>, <AU_GROUP>, <KR_GROUP>, <FALLBACK_GROUP>, RouteKit-DIRECT]
+        - name: 📈 RouteKit-Broker
+          type: select
+          proxies: [<HK_GROUP>, <JP_GROUP>, <TW_GROUP>, <SG_GROUP>, <US_GROUP>, <AU_GROUP>, <KR_GROUP>, <FALLBACK_GROUP>, RouteKit-DIRECT]
         - name: 🌍 RouteKit-Proxy
           type: select
           proxies: [<FALLBACK_GROUP>, RouteKit-DIRECT]
